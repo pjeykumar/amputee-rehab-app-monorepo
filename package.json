@@ -4,6 +4,10 @@
   "main": "index.js",
   "author": "Adam Turner <adam.turner@and.digital>",
   "license": "MIT",
+  "scripts": {
+    "git": "git cz",
+    "dev": "skaffold dev"
+  },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
