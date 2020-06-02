@@ -1,0 +1,25 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "adamjamesturner93",
+      "name": "Turner",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/50718647?v=4",
+      "profile": "https://github.com/adamjamesturner93",
+      "contributions": [
+        "infra",
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "amputee-rehab-app-monorepo",
+  "projectOwner": "Imperial-College-AND-Digital",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
