@@ -59,7 +59,6 @@ Thank you to all the Contributors on this project
 <table>
   <tr>
     <td align="center"><a href="https://github.com/adamjamesturner93"><img src="https://avatars3.githubusercontent.com/u/50718647?v=4" width="100px;" alt=""/><br /><sub><b>Turner</b></sub></a><br /><a href="#infra-adamjamesturner93" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/Imperial-College-AND-Digital/amputee-rehab-app-monorepo/commits?author=adamjamesturner93" title="Code">💻</a> <a href="https://github.com/Imperial-College-AND-Digital/amputee-rehab-app-monorepo/commits?author=adamjamesturner93" title="Documentation">📖</a></td>
-    <td align="center"><a href="https://engineering.uottawa.ca/eecs/people/peyton-liam"><img src="https://avatars2.githubusercontent.com/u/1271336?v=4" width="100px;" alt=""/><br /><sub><b>Liam Peyton</b></sub></a><br /><a href="https://github.com/Imperial-College-AND-Digital/amputee-rehab-app-monorepo/commits?author=lpeyton" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/lucypeyton"><img src="https://avatars2.githubusercontent.com/u/18162371?v=4" width="100px;" alt=""/><br /><sub><b>lucypeyton</b></sub></a><br /><a href="https://github.com/Imperial-College-AND-Digital/amputee-rehab-app-monorepo/commits?author=lucypeyton" title="Documentation">📖</a></td>
   </tr>
 </table>
