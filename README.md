@@ -58,7 +58,7 @@ Thank you to all the Contributors on this project
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/adamjamesturner93"><img src="https://avatars3.githubusercontent.com/u/50718647?v=4" width="100px;" alt=""/><br /><sub><b>Turner</b></sub></a><br /><a href="#infra-adamjamesturner93" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/Imperial-College-AND-Digital/amputee-rehab-app-monorepo/commits?author=adamjamesturner93" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/adamjamesturner93"><img src="https://avatars3.githubusercontent.com/u/50718647?v=4" width="100px;" alt=""/><br /><sub><b>Turner</b></sub></a><br /><a href="#infra-adamjamesturner93" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/Imperial-College-AND-Digital/amputee-rehab-app-monorepo/commits?author=adamjamesturner93" title="Code">💻</a> <a href="https://github.com/Imperial-College-AND-Digital/amputee-rehab-app-monorepo/commits?author=adamjamesturner93" title="Documentation">📖</a></td>
   </tr>
 </table>
 
