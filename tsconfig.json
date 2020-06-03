@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "noErrorTruncation": true,
+        "noImplicitAny": true,
+        "suppressImplicitAnyIndexErrors": false,
+        "strictNullChecks": true,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitReturns": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": false,
+        "forceConsistentCasingInFileNames": true,
+        "skipLibCheck": true,
+        "removeComments": false,
+        "preserveConstEnums": true,
+        "sourceMap": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "target": "es2015",
+        "module": "commonjs",
+        "jsx": "react",
+        "lib": ["DOM", "ESnext"]
+    },
+    "exclude": ["node_modules", "dist", "client", "web/webpack.config.ts"]
+}

@@ -1,36 +1,31 @@
-import { Request, Response, NextFunction } from "express";
-import jwt from "jsonwebtoken";
+import { Request, Response, NextFunction } from 'express';
+import jwt from 'jsonwebtoken';
 
 interface UserPayload {
-  id: string;
-  email: string;
+    id: string;
+    email: string;
 }
 
 declare global {
-  namespace Express {
-    interface Request {
-      currentUser?: UserPayload;
+    // eslint-disable-next-line @typescript-eslint/no-namespace
+    namespace Express {
+        interface Request {
+            currentUser?: UserPayload;
+        }
     }
-  }
 }
 
-export const currentUser = (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
-  try {
-    if (!req.session?.jwt) {
-      return next();
-    }
+export const currentUser = (req: Request, res: Response, next: NextFunction): void => {
+    try {
+        if (!req.session?.jwt) {
+            return next();
+        }
 
-    const payload = jwt.verify(
-      req.session.jwt,
-      process.env.JWT_KEY!
-    ) as UserPayload;
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        const payload = jwt.verify(req.session.jwt, process.env.JWT_KEY!) as UserPayload;
 
-    req.currentUser = payload;
-  } catch (error) {}
+        req.currentUser = payload;
+    } catch (error) {}
 
-  next();
+    next();
 };
