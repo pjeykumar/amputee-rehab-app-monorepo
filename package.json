@@ -25,6 +25,7 @@
         "eslint-plugin-react": "^7.19.0",
         "eslint-plugin-react-hooks": "2.5.0",
         "husky": "^4.2.5",
+        "jest-sonar-reporter": "^2.0.0",
         "prettier": "^2.0.5",
         "typescript": "^3.9.3"
     },

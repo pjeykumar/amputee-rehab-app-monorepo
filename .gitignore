@@ -1,3 +1,5 @@
 .secrets
 **/node_modules
 **/.next
+**/coverage
+**/test-report.xml

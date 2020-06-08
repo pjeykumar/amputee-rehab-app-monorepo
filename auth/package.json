@@ -27,6 +27,7 @@
     "@types/jest": "^25.2.3",
     "@types/supertest": "^2.0.9",
     "jest": "^26.0.1",
+    "jest-sonar-reporter": "^2.0.0",
     "mongodb-memory-server": "^6.6.1",
     "supertest": "^4.0.2",
     "ts-jest": "^26.0.0"
@@ -36,6 +37,12 @@
     "testEnvironment": "node",
     "setupFilesAfterEnv": [
       "./src/test/setup.ts"
+    ],
+    "collectCoverage": true,
+    "testResultsProcessor": "jest-sonar-reporter",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/test/"
     ]
   }
 }

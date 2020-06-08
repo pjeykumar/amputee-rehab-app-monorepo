@@ -1,10 +1,10 @@
 import express, { Request, Response } from 'express';
-import { body, validationResult } from 'express-validator';
+import { body } from 'express-validator';
 import jwt from 'jsonwebtoken';
 
 import { Password } from '../services/password';
 import { User } from '../models/user';
-import { validateRequest, RequestValidationError, BadRequestError } from '@amp-rehab-app/common';
+import { validateRequest, BadRequestError } from '@amp-rehab-app/common';
 
 const router = express.Router();
 
@@ -16,11 +16,6 @@ router.post(
         validateRequest,
     ],
     async (req: Request, res: Response) => {
-        const errors = validationResult(req);
-        if (!errors.isEmpty()) {
-            throw new RequestValidationError(errors.array());
-        }
-
         const { email, password } = req.body;
 
         const existingUser = await User.findOne({ email: email });
