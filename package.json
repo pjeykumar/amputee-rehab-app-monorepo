@@ -7,7 +7,9 @@
     "scripts": {
         "git": "git cz",
         "dev": "skaffold dev",
-        "lint": "eslint './**/*.{js,ts,tsx}' --quiet --fix"
+        "lint": "eslint './**/*.{js,ts,tsx}' --quiet --fix",
+        "auth:coverage": "cd auth && yarn coverage",
+        "coverage": "yarn auth:coverage"
     },
     "devDependencies": {
         "@commitlint/cli": "^8.3.5",
