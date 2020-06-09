@@ -17,7 +17,7 @@ build:
           - src: "src/**/*.ts"
             dest: .
     - image: amprehabapp/client
-      context: client
+      context: web
       docker:
         dockerfile: Dockerfile
       sync:

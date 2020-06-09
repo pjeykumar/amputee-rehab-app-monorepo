@@ -1,6 +1,11 @@
 name: tests
-
-on: pull_request
+on:
+    push:
+        branches:
+            - master
+    pull_request:
+        branches:
+            - master
 
 jobs:
     build:
@@ -12,6 +17,7 @@ jobs:
               env:
                   CC_TEST_REPORTER_ID: b448bc9b1734ce66b732cbc0dda886a0e99c5b9e2a75f5bb116b6839914d0085
               with:
+                  debug: true
                   coverageCommand: yarn coverage
                   coverageLocations: |
                       ${{github.workspace}}/auth/coverage/lcov.info:lcov

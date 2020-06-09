@@ -1,6 +1,9 @@
 # Amputee Rehabilitation Application
+
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 <!--- These are examples. See https://shields.io for others or to customize this set of shields. You might want to include dependencies, project status and licence info here --->
@@ -22,10 +25,10 @@ Before you begin, ensure you have met the following requirements:
 
 <!--- These are just example requirements. Add, duplicate or remove as required --->
 
-- You have installed
-  - [Node v12.17.0](https://nodejs.org/en/)
-  - [Docker](https://www.docker.com/) with [Kubernetes](https://kubernetes.io/) enabled
-  - [Skaffold](https://skaffold.dev/)
+-   The following are installed
+    -   [Node v12.17.0](https://nodejs.org/en/)
+    -   [Docker](https://www.docker.com/) with [Kubernetes](https://kubernetes.io/) enabled
+    -   [Skaffold](https://skaffold.dev/)
 
 ## Running
 
@@ -53,6 +56,7 @@ Alternatively see the GitHub documentation on [creating a pull request](https://
 ## Contributors
 
 Thank you to all the Contributors on this project
+
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
@@ -65,11 +69,12 @@ Thank you to all the Contributors on this project
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 ## Contact
 
-If you want to contact me you can reach me at <your_email@address.com>.
+If you want to contact me you can reach me at [adamjamesturner93@gmail.com](mailto:adamjamesturner93@gmail.com).
 
 ## License
 
