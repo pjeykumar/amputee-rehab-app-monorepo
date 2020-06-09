@@ -1,10 +1,10 @@
 import express, { Request, Response } from 'express';
 import { body } from 'express-validator';
-import jwt from 'jsonwebtoken';
 
 import { Password } from '../services/password';
 import { User } from '../models/user';
 import { validateRequest, BadRequestError } from '@amp-rehab-app/common';
+import { createUserJWT } from '../services/jwt';
 
 const router = express.Router();
 
@@ -30,7 +30,7 @@ router.post(
             throw new BadRequestError('User or password incorrect');
         }
         // Generate JWT
-        const userJwt = jwt.sign({ id: existingUser.id, email: existingUser.email }, process.env.JWT_KEY!);
+        const userJwt = createUserJWT(existingUser.id, existingUser.email);
 
         // Store on the session object
         req.session = {

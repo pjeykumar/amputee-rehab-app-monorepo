@@ -1,9 +1,9 @@
 import express, { Request, Response } from 'express';
-import { body, validationResult } from 'express-validator';
-import jwt from 'jsonwebtoken';
+import { body } from 'express-validator';
 
 import { User } from '../models/user';
 import { validateRequest, BadRequestError } from '@amp-rehab-app/common';
+import { createUserJWT } from '../services/jwt';
 
 const router = express.Router();
 
@@ -27,7 +27,7 @@ router.post(
         await user.save();
 
         // Generate JWT
-        const userJwt = jwt.sign({ id: user.id, email: user.email }, process.env.JWT_KEY!);
+        const userJwt = createUserJWT(user.id, user.email);
 
         // Store on the session object
         req.session = {
