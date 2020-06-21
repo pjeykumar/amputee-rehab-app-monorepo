@@ -5,8 +5,8 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
 
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
-
-<!--- These are examples. See https://shields.io for others or to customize this set of shields. You might want to include dependencies, project status and licence info here --->
+[![Test Coverage](https://api.codeclimate.com/v1/badges/30403ed73b706a887da2/test_coverage)](https://codeclimate.com/github/Imperial-College-AND-Digital/amputee-rehab-app-monorepo/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/30403ed73b706a887da2/maintainability)](https://codeclimate.com/github/Imperial-College-AND-Digital/amputee-rehab-app-monorepo/maintainability)
 
 The Amputee Rehabilitation app is a cross platform application to facilitate and encourage amputees to complete their rehab in a community environment.
 
