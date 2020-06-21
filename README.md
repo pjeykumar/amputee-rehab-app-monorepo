@@ -1,7 +1,7 @@
 # Amputee Rehabilitation Application
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 [![Test Coverage](https://api.codeclimate.com/v1/badges/30403ed73b706a887da2/test_coverage)](https://codeclimate.com/github/Imperial-College-AND-Digital/amputee-rehab-app-monorepo/test_coverage)
 [![Maintainability](https://api.codeclimate.com/v1/badges/30403ed73b706a887da2/maintainability)](https://codeclimate.com/github/Imperial-College-AND-Digital/amputee-rehab-app-monorepo/maintainability)
@@ -63,6 +63,7 @@ Thank you to all the Contributors on this project
     <td align="center"><a href="https://github.com/adamjamesturner93"><img src="https://avatars3.githubusercontent.com/u/50718647?v=4" width="100px;" alt=""/><br /><sub><b>Turner</b></sub></a><br /><a href="#infra-adamjamesturner93" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/Imperial-College-AND-Digital/amputee-rehab-app-monorepo/commits?author=adamjamesturner93" title="Code">💻</a> <a href="https://github.com/Imperial-College-AND-Digital/amputee-rehab-app-monorepo/commits?author=adamjamesturner93" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/lucypeyton"><img src="https://avatars2.githubusercontent.com/u/18162371?v=4" width="100px;" alt=""/><br /><sub><b>lucypeyton</b></sub></a><br /><a href="https://github.com/Imperial-College-AND-Digital/amputee-rehab-app-monorepo/commits?author=lucypeyton" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/anitaschan"><img src="https://avatars1.githubusercontent.com/u/40230516?v=4" width="100px;" alt=""/><br /><sub><b>Anita Chan</b></sub></a><br /><a href="https://github.com/Imperial-College-AND-Digital/amputee-rehab-app-monorepo/commits?author=anitaschan" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/jchiversAND"><img src="https://avatars1.githubusercontent.com/u/43601980?v=4" width="100px;" alt=""/><br /><sub><b>jchiversAND</b></sub></a><br /><a href="https://github.com/Imperial-College-AND-Digital/amputee-rehab-app-monorepo/commits?author=jchiversAND" title="Code">💻</a></td>
   </tr>
 </table>
 
