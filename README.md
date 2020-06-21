@@ -5,6 +5,7 @@
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 [![Test Coverage](https://api.codeclimate.com/v1/badges/30403ed73b706a887da2/test_coverage)](https://codeclimate.com/github/Imperial-College-AND-Digital/amputee-rehab-app-monorepo/test_coverage)
 [![Maintainability](https://api.codeclimate.com/v1/badges/30403ed73b706a887da2/maintainability)](https://codeclimate.com/github/Imperial-College-AND-Digital/amputee-rehab-app-monorepo/maintainability)
+![Build](https://github.com/Imperial-College-AND-Digital/amputee-rehab-app-monorepo/workflows/tests/badge.svg)
 
 The Amputee Rehabilitation app is a cross platform application to facilitate and encourage amputees to complete their rehab in a community environment.
 
