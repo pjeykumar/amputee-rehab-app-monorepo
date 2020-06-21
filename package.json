@@ -1,45 +1,31 @@
 {
-    "name": "rehab-monorepo",
-    "version": "1.0.0",
-    "main": "index.js",
-    "author": "Adam Turner <adam.turner@and.digital>",
-    "license": "MIT",
-    "scripts": {
-        "git": "git cz",
-        "dev": "skaffold dev",
-        "lint": "eslint './**/*.{js,ts,tsx}' --quiet --fix",
-        "auth:coverage": "cd auth && yarn coverage",
-        "coverage": "yarn auth:coverage"
-    },
-    "devDependencies": {
-        "@commitlint/cli": "^8.3.5",
-        "@commitlint/config-conventional": "^8.3.4",
-        "@typescript-eslint/eslint-plugin": "^3.1.0",
-        "@typescript-eslint/parser": "^3.1.0",
-        "commitizen": "^4.1.2",
-        "cz-conventional-changelog": "^3.2.0",
-        "eslint": "^7.1.0",
-        "eslint-config-airbnb": "18.1.0",
-        "eslint-config-prettier": "^6.11.0",
-        "eslint-plugin-import": "^2.20.1",
-        "eslint-plugin-jsx-a11y": "^6.2.3",
-        "eslint-plugin-prettier": "^3.1.3",
-        "eslint-plugin-react": "^7.19.0",
-        "eslint-plugin-react-hooks": "2.5.0",
-        "husky": "^4.2.5",
-        "jest-sonar-reporter": "^2.0.0",
-        "prettier": "^2.0.5",
-        "typescript": "^3.9.3"
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "yarn lint",
-            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-        }
-    },
-    "config": {
-        "commitizen": {
-            "path": "./node_modules/cz-conventional-changelog"
-        }
+  "name": "rehab-monorepo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Adam Turner <adam.turner@and.digital>",
+  "license": "MIT",
+  "scripts": {
+    "git": "git cz",
+    "dev": "skaffold dev",
+    "activity-recorder:coverage": "cd activity-recorder && yarn coverage",
+    "auth:coverage": "cd auth && yarn coverage",
+    "coverage": "yarn auth:coverage && yarn activity-recorder:coverage"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "commitizen": "^4.1.2",
+    "cz-conventional-changelog": "^3.2.0",
+    "husky": "^4.2.5"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }

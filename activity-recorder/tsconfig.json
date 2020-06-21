@@ -8,7 +8,6 @@
         "noImplicitReturns": true,
         "noUnusedLocals": true,
         "noUnusedParameters": false,
-        "forceConsistentCasingInFileNames": true,
         "skipLibCheck": true,
         "removeComments": false,
         "preserveConstEnums": true,
@@ -17,8 +16,9 @@
         "emitDecoratorMetadata": true,
         "target": "es2015",
         "module": "commonjs",
-        "jsx": "react",
-        "lib": ["DOM", "ESnext"]
+        "strict": true /* Enable all strict type-checking options. */,
+        "esModuleInterop": true /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */,
+        "forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file. */
     },
-    "exclude": ["node_modules", "dist", "client", "web/webpack.config.ts"]
+    "exclude": ["node_modules"]
 }
