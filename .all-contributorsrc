@@ -28,6 +28,17 @@
       ]
     },
     {
+      "login": "simbaandi",
+      "name": "simbaandi",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/37182789?v=4",
+      "profile": "https://github.com/simbaandi",
+      "contributions": [
+        "design",
+        "doc",
+        "ideas"
+      ]
+    },
+    {
       "login": "anitaschan",
       "name": "Anita Chan",
       "avatar_url": "https://avatars1.githubusercontent.com/u/40230516?v=4",
@@ -35,7 +46,7 @@
       "contributions": [
         "code"
       ]
-    },
+    }, 
     {
       "login": "jchiversAND",
       "name": "jchiversAND",
@@ -54,6 +65,7 @@
         "code"
       ]
     }
+    
   ],
   "contributorsPerLine": 7,
   "projectName": "amputee-rehab-app-monorepo",
