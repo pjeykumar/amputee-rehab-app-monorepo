@@ -1,7 +1,7 @@
 import React from 'react';
-import { Button } from 'react-native-paper';
+import { Button, Title } from '../../../styles/components';
 import styled from '@emotion/native';
-import colors from '../../../styles/ColorTheme';
+import colors from '../../../styles/constants/ColorScheme';
 
 const Container = styled.View`
   flex: 1;
@@ -10,23 +10,13 @@ const Container = styled.View`
   align-items: center;
 `;
 
-const Title = styled.Text`
-  font-size: 20px;
-  font-weight: 500;
-  color: palevioletred;
-`;
-
-const StyledButton = styled(Button)`
-  width: 150px;
-`;
-
 const Home = ({ navigation }) => {
   return (
     <Container>
       <Title>React Native with 👩‍🎤 Emotion</Title>
-      <StyledButton mode="contained" color={colors.yellow} onPress={() => navigation.navigate('Login')}>
+      <Button color={colors.yellow} onPress={() => navigation.navigate('Login')}>
         Login
-      </StyledButton>
+      </Button>
     </Container>
   );
 };

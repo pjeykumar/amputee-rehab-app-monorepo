@@ -1,4 +1,4 @@
-import colors from './ColorTheme';
+import colors from '../constants/ColorScheme';
 
 const PaperTheme = {
   dark: false,

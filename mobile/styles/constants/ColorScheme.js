@@ -1,4 +1,4 @@
-const ColorTheme = {
+const ColorScheme = {
   /* Black */
   black: '#000',
 
@@ -39,4 +39,4 @@ const ColorTheme = {
   greenDarker: '#1D3E10',
 };
 
-export default ColorTheme;
+export default ColorScheme;
