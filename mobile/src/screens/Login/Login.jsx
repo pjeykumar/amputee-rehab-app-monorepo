@@ -4,7 +4,7 @@ import { Button } from '../../../styles/components';
 
 const Login = ({ navigation }) => {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <View>
       <Text>Login View Screen</Text>
       <Button onPress={() => navigation.push('Login')}>Go to Login View... again</Button>
       <Button onPress={() => navigation.navigate('Home')}>Go to Home</Button>
