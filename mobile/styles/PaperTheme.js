@@ -1,19 +1,21 @@
+import colors from './ColorTheme';
+
 const PaperTheme = {
   dark: false,
   roundness: 4,
   colors: {
-    primary: '#0D749E',
-    accent: '#03dac4',
-    background: '#f6f6f6',
-    surface: '#ffffff',
-    error: '#B00020',
-    text: '#000000',
-    onBackground: '#000000',
-    onSurface: '#000000',
+    primary: colors.blueDark,
+    accent: colors.green,
+    background: colors.white,
+    surface: colors.white,
+    error: colors.redDark,
+    text: colors.greyDarker,
+    onBackground: colors.black,
+    onSurface: colors.black,
     disabled: 'rgba(0, 0, 0, 0.26)',
     placeholder: 'rgba(0, 0, 0, 0.54)',
     backdrop: 'rgba(0, 0, 0, 0.5)',
-    notification: '#f50057',
+    notification: colors.red,
   },
   fonts: {
     regular: { fontFamily: 'Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif', fontWeight: '400' },

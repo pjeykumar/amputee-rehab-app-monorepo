@@ -1,11 +1,13 @@
+import colors from './ColorTheme';
+
 const NavigationTheme = {
   dark: false,
   colors: {
-    primary: 'rgb(0, 122, 255)',
-    background: 'rgb(242, 242, 242)',
-    card: 'rgb(255, 255, 255)',
-    text: 'rgb(28, 28, 30)',
-    border: 'rgb(224, 224, 224)',
+    primary: colors.blue,
+    background: colors.greyLighter,
+    card: colors.greyLighter,
+    text: colors.greyDarker,
+    border: colors.greyLight,
   },
 };
 
