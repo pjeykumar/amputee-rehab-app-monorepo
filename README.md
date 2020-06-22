@@ -1,8 +1,11 @@
 # Amputee Rehabilitation Application
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors-)
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
+
 [![Test Coverage](https://api.codeclimate.com/v1/badges/30403ed73b706a887da2/test_coverage)](https://codeclimate.com/github/Imperial-College-AND-Digital/amputee-rehab-app-monorepo/test_coverage)
 [![Maintainability](https://api.codeclimate.com/v1/badges/30403ed73b706a887da2/maintainability)](https://codeclimate.com/github/Imperial-College-AND-Digital/amputee-rehab-app-monorepo/maintainability)
 ![Build](https://github.com/Imperial-College-AND-Digital/amputee-rehab-app-monorepo/workflows/tests/badge.svg)
@@ -24,10 +27,24 @@ Before you begin, ensure you have met the following requirements:
 
 <!--- These are just example requirements. Add, duplicate or remove as required --->
 
--   The following are installed
-    -   [Node v12.17.0](https://nodejs.org/en/)
-    -   [Docker](https://www.docker.com/) with [Kubernetes](https://kubernetes.io/) enabled
-    -   [Skaffold](https://skaffold.dev/)
+- The following are installed
+  - [Node v12.17.0](https://nodejs.org/en/)
+  - [Docker](https://www.docker.com/) with [Kubernetes](https://kubernetes.io/) enabled
+  - [Skaffold](https://skaffold.dev/)
+
+Enable Ingress-nginx on your Kubernetes instance
+
+```bash
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/provider/cloud/deploy.yaml
+```
+
+Setup a local JWT-Secret:
+
+```bash
+kubectl create secret generic jwt-secret --from-literal=JWT_KEY=87~A@xXfMw$QuV9XJFu
+```
+
+Update your `/etc/hosts` file with the an entry for `127.0.0.1 rehabapp.dev`
 
 ## Running
 
@@ -38,6 +55,25 @@ yarn dev
 ```
 
 This will spin up all the containers with related networking.
+
+## Mobile Prerequisites
+
+Install Expo CLI
+
+```
+ yarn global add expo-cli
+```
+
+## Running
+
+```
+yarn start
+```
+
+To run on mobile device:
+
+1. Install 'Expo' app
+2. Scan QR code
 
 ## Contributing
 
@@ -73,6 +109,7 @@ Thank you to all the Contributors on this project
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 ## Contact
