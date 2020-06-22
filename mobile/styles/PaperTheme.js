@@ -18,10 +18,10 @@ const PaperTheme = {
     notification: colors.red,
   },
   fonts: {
-    regular: { fontFamily: 'Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif', fontWeight: '400' },
-    medium: { fontFamily: 'Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif', fontWeight: '500' },
-    light: { fontFamily: 'Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif', fontWeight: '300' },
-    thin: { fontFamily: 'Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif', fontWeight: '100' },
+    regular: { fontFamily: 'Avenir', fontWeight: '400' },
+    medium: { fontFamily: 'Avenir', fontWeight: '500' },
+    light: { fontFamily: 'Avenir', fontWeight: '300' },
+    thin: { fontFamily: 'Avenir', fontWeight: '100' },
   },
   animation: { scale: 1 },
 };
