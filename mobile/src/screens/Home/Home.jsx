@@ -12,7 +12,7 @@ const Container = styled.View`
 
 const Title = styled.Text`
   font-size: 20px;
-  font-weight: 501;
+  font-weight: 500;
   color: palevioletred;
 `;
 
@@ -24,7 +24,7 @@ const Home = ({ navigation }) => {
   return (
     <Container>
       <Title>React Native with 👩‍🎤 Emotion</Title>
-      <StyledButton mode="contained" onPress={() => navigation.navigate('Login')}>
+      <StyledButton mode="contained" color={colors.yellow} onPress={() => navigation.navigate('Login')}>
         Login
       </StyledButton>
     </Container>
