@@ -1,27 +1,15 @@
 import React from 'react';
-import { Button } from 'react-native';
-import styled from '@emotion/native';
-
-const Container = styled.View`
-    flex: 1;
-    background-color: papayawhip;
-    justify-content: center;
-    align-items: center;
-`;
-
-const Title = styled.Text`
-    font-size: 20px;
-    font-weight: 501;
-    color: palevioletred;
-`;
+import { Button, Title } from '../../../styles/components';
 
 const Home = ({ navigation }) => {
-    return (
-        <Container>
-            <Title>React Native with 👩‍🎤 Emotion</Title>
-            <Button title="Login" onPress={() => navigation.navigate('Login')} />
-        </Container>
-    );
+  return (
+    <>
+      <Title>React Native with 👩‍🎤 Emotion</Title>
+      <Button primary large onPress={() => navigation.navigate('Login')}>
+        Login
+      </Button>
+    </>
+  );
 };
 
 export default Home;

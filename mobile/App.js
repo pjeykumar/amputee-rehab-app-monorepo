@@ -1,18 +1,15 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import MainStackNavigation from './src/navigation/MainStackNavigation';
-import styled from '@emotion/native';
-
-const AppContainer = styled.View`
-  flex: 1;
-`;
+import { Provider as PaperProvider } from 'react-native-paper';
+import { PaperTheme, NavigationTheme } from './styles';
 
 export default function App() {
   return (
-    <AppContainer>
-      <NavigationContainer>
+    <PaperProvider theme={PaperTheme}>
+      <NavigationContainer theme={NavigationTheme}>
         <MainStackNavigation />
       </NavigationContainer>
-    </AppContainer>
+    </PaperProvider>
   );
 }
