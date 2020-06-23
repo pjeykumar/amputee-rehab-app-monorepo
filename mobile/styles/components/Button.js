@@ -6,21 +6,17 @@ import colors from '../constants/ColorScheme';
 const StyledButton = styled(PaperButton)`
   background-color: ${(props) => {
     if (props.primary) {
-      return colors.greenDark;
-    } else if (props.secondary) {
-      return colors.redDark;
-    } else {
       return colors.blueDark;
+    } else if (props.secondary) {
+      return colors.yellowDark;
     }
   }};
 
   width: ${(props) => {
     if (props.small) {
-      return '20px';
+      return '100px';
     } else if (props.large) {
       return '200px';
-    } else {
-      return '400px';
     }
   }};
 `;
