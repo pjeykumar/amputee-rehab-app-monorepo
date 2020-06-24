@@ -6,6 +6,7 @@ import { Layout } from '../../../styles/components';
 import { Container } from '../../../styles/components';
 
 import { withAuthContext } from '../../contexts/AuthContext/AuthContext';
+import { Text } from 'react-native';
 
 const Login = ({ navigation, login }) => {
   const [email, setEmail] = useState('');
@@ -13,16 +14,29 @@ const Login = ({ navigation, login }) => {
   const [error, setError] = useState(null);
 
   const onSubmit = async () => {
-    const response = await login(email, password);
-    console.log('response', response);
+    const { response, errors } = await login({ email, password });
+    if (errors) setError(errors);
+
     if (response) {
       navigation.navigate('Home');
     }
   };
 
+  let Errors = null;
+  if (error) {
+    Errors = <Container></Container>;
+  }
+
   return (
     <Layout>
       <Container>
+        {error ? (
+          <React.Fragment>
+            {error.map((e) => (
+              <Text>{e.message}</Text>
+            ))}
+          </React.Fragment>
+        ) : null}
         <TextInput
           label="username"
           value={email}

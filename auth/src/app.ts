@@ -4,6 +4,7 @@ import express from 'express';
 import 'express-async-errors';
 import { json } from 'body-parser';
 import cookieSession from 'cookie-session';
+import cors from 'cors';
 
 import { currentUserRouter } from './routes/current-user';
 import { signinRouter } from './routes/signin';
@@ -11,18 +12,15 @@ import { signoutRouter } from './routes/signout';
 import { signupRouter } from './routes/signup';
 
 const app = express();
-app.set('trust proxy', true);
-app.use(function (req: Request, res: Response, next: NextFunction) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  next();
-});
+// app.set('trust proxy', true);
 
+app.use(cors());
 app.use(json());
+
 app.use(
   cookieSession({
     signed: false,
-    secure: process.env.NODE_ENV !== 'test',
+    secure: false,
   }),
 );
 

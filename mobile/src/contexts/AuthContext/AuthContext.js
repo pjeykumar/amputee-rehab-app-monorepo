@@ -11,19 +11,20 @@ export class AuthProvider extends React.Component {
     };
   }
 
-  login(formData) {
-    const response = '';
-    const url = 'http://35.242.176.68/api/users/signin';
-    return axios
-      .post(url, {})
-      .then(function (response) {
-        console.log('auth context -> sign in response', response);
-        return response;
-      })
-      .catch(function (error) {
-        console.log('auth context -> sign in error', error);
-        return error;
-      });
+  async login(formData) {
+    const url = 'http://localhost/api/users/signin';
+    let response = null;
+    let errors = null;
+    try {
+      console.log(formData);
+      response = await axios.post(url, formData);
+      console.log(response.headers['set-cookie'][0]);
+    } catch (error) {
+      console.log('auth context -> sign in error', JSON.stringify(error.response.data.errors, null, 2));
+      errors = error.response.data.errors;
+    }
+
+    return { response, errors };
   }
 
   register(formData) {
