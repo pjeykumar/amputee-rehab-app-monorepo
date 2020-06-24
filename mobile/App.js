@@ -5,7 +5,6 @@ import { Provider as PaperProvider } from 'react-native-paper';
 import { PaperTheme, NavigationTheme } from './styles';
 import { AuthProvider } from './src/contexts/AuthContext/AuthContext';
 
-
 export default function App() {
   return (
     <AuthProvider>

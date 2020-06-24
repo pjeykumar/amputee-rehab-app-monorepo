@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
-import { Button } from '../../../styles/components';
-import { TextInput } from 'react-native-paper';
 import styled from '@emotion/native';
-import { Layout } from '../../../styles/components';
-import { Container } from '../../../styles/components';
+import { Button, Layout, Container, TextInput } from '../../../styles/components';
 
 import { withAuthContext } from '../../contexts/AuthContext/AuthContext';
 import { Text } from 'react-native';
@@ -38,14 +35,15 @@ const Login = ({ navigation, login }) => {
           </React.Fragment>
         ) : null}
         <TextInput
+          title="Email address"
           label="username"
           value={email}
           placeholder={'email@email.com'}
           onChange={(event) => setEmail(event.nativeEvent.text)}
         ></TextInput>
         <TextInput
+          title="Password"
           label="password"
-          title="password"
           secureTextEntry={true}
           value={password}
           onChange={(event) => setPassword(event.nativeEvent.text)}

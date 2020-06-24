@@ -19,6 +19,7 @@ const StyledButton = styled(PaperButton)`
       return '200px';
     }
   }};
+  margin: 8px 0;
 `;
 
 const Button = ({ children, mode = 'contained', ...props }) => {

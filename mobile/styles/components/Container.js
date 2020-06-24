@@ -4,8 +4,8 @@ import colors from '../constants/ColorScheme';
 
 const StyledContainer = styled.View`
   background-color: ${colors.white};
-  height: 400px;
-  width: 100%;
+  justify-content: center;
+  padding: 24px;
 `;
 
 const Container = ({ children, ...props }) => {
