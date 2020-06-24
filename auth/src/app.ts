@@ -12,13 +12,18 @@ import { signupRouter } from './routes/signup';
 
 const app = express();
 app.set('trust proxy', true);
+app.use(function (req: Request, res: Response, next: NextFunction) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+});
 
 app.use(json());
 app.use(
-    cookieSession({
-        signed: false,
-        secure: process.env.NODE_ENV !== 'test',
-    }),
+  cookieSession({
+    signed: false,
+    secure: process.env.NODE_ENV !== 'test',
+  }),
 );
 
 app.use(currentUserRouter);
@@ -27,7 +32,7 @@ app.use(signoutRouter);
 app.use(signupRouter);
 
 app.all('*', async (req, res, next) => {
-    throw new NotFoundError();
+  throw new NotFoundError();
 });
 
 app.use(errorHandler);

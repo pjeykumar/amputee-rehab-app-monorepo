@@ -22,7 +22,7 @@ const ColorScheme = {
   /* Yellow */
   yellow: '#FFC800',
   yellowLight: '#F9D386',
-  yellowLighter: '#FFF2D8',
+  yellowLighter: '#FFF9EB',
   yellowDark: '#EC9F00',
   yellowDarker: '#9F6C03',
 

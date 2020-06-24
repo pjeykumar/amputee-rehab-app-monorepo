@@ -3,13 +3,17 @@ import { NavigationContainer } from '@react-navigation/native';
 import MainStackNavigation from './src/navigation/MainStackNavigation';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { PaperTheme, NavigationTheme } from './styles';
+import { AuthProvider } from './src/contexts/AuthContext/AuthContext';
+
 
 export default function App() {
   return (
-    <PaperProvider theme={PaperTheme}>
-      <NavigationContainer theme={NavigationTheme}>
-        <MainStackNavigation />
-      </NavigationContainer>
-    </PaperProvider>
+    <AuthProvider>
+      <PaperProvider theme={PaperTheme}>
+        <NavigationContainer theme={NavigationTheme}>
+          <MainStackNavigation />
+        </NavigationContainer>
+      </PaperProvider>
+    </AuthProvider>
   );
 }

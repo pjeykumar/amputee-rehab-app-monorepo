@@ -21,9 +21,9 @@ const StyledButton = styled(PaperButton)`
   }};
 `;
 
-const Button = ({ children, mode = 'contained', color, onPress = () => {}, ...props }) => {
+const Button = ({ children, mode = 'contained', ...props }) => {
   return (
-    <StyledButton mode={mode} color={color} onPress={onPress} {...props}>
+    <StyledButton mode={mode} {...props}>
       {children}
     </StyledButton>
   );
