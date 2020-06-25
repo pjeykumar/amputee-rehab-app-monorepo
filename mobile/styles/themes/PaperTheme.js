@@ -1,21 +1,21 @@
-import { ColourScheme } from '../constants';
+import { colours } from '../constants';
 
 const PaperTheme = {
   dark: false,
   roundness: 4,
   colors: {
-    primary: ColourScheme.blueDark,
-    accent: ColourScheme.green,
-    background: ColourScheme.white,
-    surface: ColourScheme.white,
-    error: ColourScheme.redDark,
-    text: ColourScheme.greyDarker,
-    onBackground: ColourScheme.black,
-    onSurface: ColourScheme.black,
+    primary: colours.blueDarker,
+    accent: colours.green,
+    background: colours.white,
+    surface: colours.white,
+    error: colours.redDark,
+    text: colours.greyDarker,
+    onBackground: colours.black,
+    onSurface: colours.black,
     disabled: 'rgba(0, 0, 0, 0.26)',
     placeholder: 'rgba(0, 0, 0, 0.54)',
     backdrop: 'rgba(0, 0, 0, 0.5)',
-    notification: ColourScheme.red,
+    notification: colours.red,
   },
   fonts: {
     regular: { fontWeight: '400' },

@@ -1,24 +1,23 @@
 import React from 'react';
 import styled from '@emotion/native';
 import { TextInput as PaperTextInput, Subheading } from 'react-native-paper';
-import { ColourScheme, FontScheme } from '../../styles/constants';
+import { Text } from '../components';
+import { font } from '../../styles/constants';
 
-const StyledTextInput = styled(PaperTextInput)``;
-const StyledSubheading = styled(Subheading)`
-  color: ${ColourScheme.blueDarker};
+const StyledTextInput = styled(PaperTextInput)`
+  font-size: ${font.default};
+  height: 40px;
 `;
+
 const StyledTextInputContainer = styled.View`
   padding: 8px 0;
 `;
 
-const TextInput = ({ fontSize = 16, title, children, ...props }) => {
-  console.log('title', title);
+const TextInput = ({ title, children, ...props }) => {
   return (
     <StyledTextInputContainer>
-      <StyledSubheading>{title}</StyledSubheading>
-      <StyledTextInput fontSize={fontSize} {...props}>
-        {children}
-      </StyledTextInput>
+      <Text fontSize={font.small}>{title}</Text>
+      <StyledTextInput {...props}>{children}</StyledTextInput>
     </StyledTextInputContainer>
   );
 };

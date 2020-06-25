@@ -1,11 +1,13 @@
 import React from 'react';
 import styled from '@emotion/native';
-import { ColourScheme } from '../constants';
+import { colours } from '../constants';
 
 const StyledContainer = styled.View`
-  background-color: ${ColourScheme.white};
+  background-color: ${colours.white};
   justify-content: center;
   padding: 24px;
+  margin: 20px -26px;
+  box-shadow: 1px 1px 4px ${colours.shadow};
 `;
 
 const Container = ({ children, ...props }) => {

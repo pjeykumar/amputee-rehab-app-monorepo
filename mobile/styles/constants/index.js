@@ -1,2 +1,2 @@
-export { default as ColourScheme } from './ColourScheme';
-export { default as FontScheme } from './FontScheme';
+export { default as colours } from './ColourScheme';
+export { default as font } from './FontScheme';

@@ -7,7 +7,12 @@ const MainStack = createStackNavigator();
 
 export default function MainStackNavigation() {
   return (
-    <MainStack.Navigator>
+    // <MainStack.Navigator screenOptions={headerShown: false}>
+    <MainStack.Navigator
+      screenOptions={() => ({
+        headerShown: false,
+      })}
+    >
       <MainStack.Screen name="Login" component={Login} />
       <MainStack.Screen name="Home" component={Home} options={{ title: 'Home View' }} />
     </MainStack.Navigator>

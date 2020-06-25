@@ -1,8 +1,13 @@
 import React from 'react';
-import { Title as PaperTitle } from 'react-native-paper';
+import { Text } from '../components';
+import { colours, font } from '../../styles/constants';
 
 const Title = ({ children }) => {
-  return <PaperTitle>{children}</PaperTitle>;
+  return (
+    <Text color={colours.blueDarker} fontSize={font.large} fontWeight={font.bold}>
+      {children}
+    </Text>
+  );
 };
 
 export default Title;

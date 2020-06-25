@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import styled from '@emotion/native';
-import { Button, Layout, Container, TextInput } from '../../../styles/components';
-
+import { Title, Button, Layout, Container, TextInput, Link, Text } from '../../../styles/components';
 import { withAuthContext } from '../../contexts/AuthContext/AuthContext';
-import { Text } from 'react-native';
+import styled from '@emotion/native';
+import { font } from '../../../styles/constants';
 
 const Login = ({ navigation, login }) => {
   const [email, setEmail] = useState('');
@@ -25,8 +24,13 @@ const Login = ({ navigation, login }) => {
     Errors = <Container></Container>;
   }
 
+  const StyledButton = styled(Button)`
+    align-self: flex-end;
+  `;
+
   return (
     <Layout>
+      <Title large>Login</Title>
       <Container>
         {error ? (
           <React.Fragment>
@@ -37,22 +41,25 @@ const Login = ({ navigation, login }) => {
         ) : null}
         <TextInput
           title="Email address"
-          label="username"
           value={email}
-          placeholder={'email@email.com'}
+          placeholder={'e.g. someone@abc.com'}
           onChange={(event) => setEmail(event.nativeEvent.text)}
-        ></TextInput>
+        />
         <TextInput
           title="Password"
-          label="password"
           secureTextEntry={true}
           value={password}
           onChange={(event) => setPassword(event.nativeEvent.text)}
-        ></TextInput>
-        <Button large onPress={() => onSubmit()}>
-          Submit
-        </Button>
+        />
+        <Link onPress={() => console.log('Forgotten Password link pressed')}>Forgotten your password?</Link>
+        <StyledButton small onPress={() => onSubmit()}>
+          Login
+        </StyledButton>
       </Container>
+      <Text fontSize={font.small}>
+        If you don't have an account,{' '}
+        <Link onPress={() => console.log('Register here link pressed')}>Register here</Link>
+      </Text>
     </Layout>
   );
 };

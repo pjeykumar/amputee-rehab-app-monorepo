@@ -1,13 +1,11 @@
 import React from 'react';
 import styled from '@emotion/native';
-import { ColourScheme } from '../constants';
+import { colours } from '../constants';
 
 const StyledLayout = styled.View`
-  background-color: ${ColourScheme.yellowLighter};
+  background-color: ${colours.yellowLighter};
   flex: 1;
-  justify-content: center;
-  align-content: center;
-  padding: 0 4px;
+  padding: 70px 30px;
 `;
 
 const Layout = ({ children, ...props }) => {

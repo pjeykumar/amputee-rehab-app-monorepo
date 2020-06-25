@@ -1,9 +1,11 @@
-const ColourScheme = {
+const colours = {
   /* Black */
   black: '#000',
 
   /* White */
   white: '#FFF',
+
+  shadow: 'rgba(157, 154, 149, 0.5)',
 
   /* Grey */
   grey: '#9D9A95',
@@ -22,7 +24,7 @@ const ColourScheme = {
   /* Yellow */
   yellow: '#FFC800',
   yellowLight: '#F9D386',
-  yellowLighter: '#FFF9EB',
+  yellowLighter: '#FFF7E6',
   yellowDark: '#EC9F00',
   yellowDarker: '#9F6C03',
 
@@ -39,4 +41,4 @@ const ColourScheme = {
   greenDarker: '#1D3E10',
 };
 
-export default ColourScheme;
+export default colours;
