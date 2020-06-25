@@ -1,4 +1,4 @@
-const ColorScheme = {
+const ColourScheme = {
   /* Black */
   black: '#000',
 
@@ -39,4 +39,4 @@ const ColorScheme = {
   greenDarker: '#1D3E10',
 };
 
-export default ColorScheme;
+export default ColourScheme;

@@ -1,14 +1,14 @@
 import React from 'react';
 import { Button as PaperButton } from 'react-native-paper';
 import styled, { css } from '@emotion/native';
-import colors from '../constants/ColorScheme';
+import { ColourScheme } from '../constants';
 
 const StyledButton = styled(PaperButton)`
   background-color: ${(props) => {
     if (props.primary) {
-      return colors.blueDark;
+      return ColourScheme.blueDark;
     } else if (props.secondary) {
-      return colors.yellowDark;
+      return ColourScheme.yellowDark;
     }
   }};
 

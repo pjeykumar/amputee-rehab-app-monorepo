@@ -11,12 +11,13 @@ const Login = ({ navigation, login }) => {
   const [error, setError] = useState(null);
 
   const onSubmit = async () => {
-    const { response, errors } = await login({ email, password });
-    if (errors) setError(errors);
-
-    if (response) {
+    setError(null);
+    const { data, errors } = await login({ email, password }, () => {
       navigation.navigate('Home');
-    }
+    });
+
+    if (errors) setError(errors);
+    console.warn(data);
   };
 
   let Errors = null;
@@ -29,8 +30,8 @@ const Login = ({ navigation, login }) => {
       <Container>
         {error ? (
           <React.Fragment>
-            {error.map((e) => (
-              <Text>{e.message}</Text>
+            {error.map(({ message, field }) => (
+              <Text key={message}>{message}</Text>
             ))}
           </React.Fragment>
         ) : null}

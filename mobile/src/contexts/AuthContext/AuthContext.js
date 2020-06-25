@@ -1,58 +1,47 @@
-import React from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
+import useRequest from '../../hooks/use-request';
+
 const AuthContext = React.createContext();
 
-export class AuthProvider extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      token: null,
-      isLoggedIn: false,
-    };
-  }
+export const AuthProvider = ({ children }) => {
+  const [userToken, setUserToken] = useState('');
+  const [user, setUser] = useState({});
+  const { response, doRequest } = useRequest();
 
-  async login(formData) {
-    const url = 'http://localhost/api/users/signin';
-    let response = null;
-    let errors = null;
-    try {
-      console.log(formData);
-      response = await axios.post(url, formData);
-      console.log(response.headers['set-cookie'][0]);
-    } catch (error) {
-      console.log('auth context -> sign in error', JSON.stringify(error.response.data.errors, null, 2));
-      errors = error.response.data.errors;
+  const login = async (formData, callback) => {
+    await doRequest('http://localhost/api/users/signin', 'post', formData);
+
+    if (response.errors) console.warn('auth context -> sign in error', JSON.stringify(response.errors, null, 2));
+
+    if (response.data) {
+      setUserToken('LOGGED IN'); // need to set to JWT from server
+      setUser(response.data);
+      callback();
     }
+    return response;
+  };
 
-    return { response, errors };
-  }
-
-  register(formData) {
+  const register = async (formData) => {
     // Blank for now
-  }
+  };
 
-  logout() {
-    this.setState({
-      token: null,
-      isLoggedIn: false,
-    });
-  }
+  const logout = async () => {
+    setUserToken(null);
+  };
 
-  render() {
-    return (
-      <AuthContext.Provider
-        value={{
-          ...this.state,
-          login: this.login,
-          register: this.register,
-          logout: this.logout,
-        }}
-      >
-        {this.props.children}
-      </AuthContext.Provider>
-    );
-  }
-}
+  return (
+    <AuthContext.Provider
+      value={{
+        user,
+        login,
+        register,
+        logout,
+      }}
+    >
+      {children}
+    </AuthContext.Provider>
+  );
+};
 
 export const withAuthContext = (Component) => {
   return function contextComponent(props) {

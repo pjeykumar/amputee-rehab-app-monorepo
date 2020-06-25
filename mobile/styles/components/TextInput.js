@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from '@emotion/native';
 import { TextInput as PaperTextInput, Subheading } from 'react-native-paper';
-import { ColorScheme, FontScheme } from '../../styles/constants';
+import { ColourScheme, FontScheme } from '../../styles/constants';
 
 const StyledTextInput = styled(PaperTextInput)``;
 const StyledSubheading = styled(Subheading)`
-  color: ${colors.blueDarker};
+  color: ${ColourScheme.blueDarker};
 `;
 const StyledTextInputContainer = styled.View`
   padding: 8px 0;

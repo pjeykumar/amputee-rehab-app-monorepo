@@ -1,13 +1,13 @@
-import colors from '../constants/ColorScheme';
+import { ColourScheme } from '../constants';
 
 const NavigationTheme = {
   dark: false,
   colors: {
-    primary: colors.blue,
-    background: colors.greyLighter,
-    card: colors.greyLighter,
-    text: colors.greyDarker,
-    border: colors.greyLight,
+    primary: ColourScheme.blue,
+    background: ColourScheme.greyLighter,
+    card: ColourScheme.greyLighter,
+    text: ColourScheme.greyDarker,
+    border: ColourScheme.greyLight,
   },
 };
 

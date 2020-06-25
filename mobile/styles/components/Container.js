@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from '@emotion/native';
-import colors from '../constants/ColorScheme';
+import { ColourScheme } from '../constants';
 
 const StyledContainer = styled.View`
-  background-color: ${colors.white};
+  background-color: ${ColourScheme.white};
   justify-content: center;
   padding: 24px;
 `;

@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from '@emotion/native';
-import colors from '../constants/ColorScheme';
+import { ColourScheme } from '../constants';
 
 const StyledLayout = styled.View`
-  background-color: ${colors.yellowLighter};
+  background-color: ${ColourScheme.yellowLighter};
   flex: 1;
   justify-content: center;
   align-content: center;
