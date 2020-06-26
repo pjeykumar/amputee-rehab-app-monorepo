@@ -1,34 +1,39 @@
 apiVersion: skaffold/v2alpha3
 kind: Config
 deploy:
-    kubectl:
-        manifests:
-            - ./infra/k8s/*
+  kubectl:
+    manifests:
+      - ./infra/k8s/*
 build:
-    local:
-        push: false
-    artifacts:
-        - image: amprehabapp/auth
-          context: auth
-          docker:
-              dockerfile: Dockerfile
-          sync:
-              manual:
-                  - src: 'src/**/*.ts'
-                    dest: .
-        - image: amprehabapp/activity-recorder
-          context: activity-recorder
-          docker:
-              dockerfile: Dockerfile
-          sync:
-              manual:
-                  - src: 'src/**/*.ts'
-                    dest: .
-        - image: amprehabapp/client
-          context: web
-          docker:
-              dockerfile: Dockerfile
-          sync:
-              manual:
-                  - src: '**/*.js'
-                    dest: .
+  local:
+    push: false
+  artifacts:
+    - image: eu.gcr.io/dev-rehab-app/auth
+      context: auth
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "src/**/*.ts"
+            dest: .
+    - image: eu.gcr.io/dev-rehab-app/activity-recorder
+      context: activity-recorder
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "src/**/*.ts"
+            dest: .
+    - image: eu.gcr.io/dev-rehab-app/client
+      context: web
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "**/*.js"
+            dest: .
+profiles:
+  - name: production
+    build:
+      local:
+        push: true
