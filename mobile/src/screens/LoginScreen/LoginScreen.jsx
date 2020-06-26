@@ -1,11 +1,11 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import { Button } from '../../../styles/components';
+import { Button } from '../../styles/components';
 
-const Login = ({ navigation }) => {
+const LoginScreen = ({ navigation }) => {
   return (
     <View>
-      <Text>Login View Screen</Text>
+      <Text>Screen View Screen</Text>
       <Button onPress={() => navigation.push('Login')}>Go to Login View... again</Button>
       <Button onPress={() => navigation.navigate('Home')}>Go to Home</Button>
       <Button onPress={() => navigation.goBack()}>Go back</Button>
@@ -14,4 +14,4 @@ const Login = ({ navigation }) => {
   );
 };
 
-export default Login;
+export default LoginScreen;

@@ -28,5 +28,8 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "dependencies": {
+    "expo": "^37.0.12"
   }
 }

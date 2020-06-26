@@ -3,3 +3,4 @@
 **/.next
 **/coverage
 **/test-report.xml
+/mobile/.expo
