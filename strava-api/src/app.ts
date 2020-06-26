@@ -7,7 +7,7 @@ import bodyParser from "body-parser";
 import cookieParser  from 'cookie-parser';
 import { router } from './config/passport';
 import { isAuthenticated } from './util/user_authenticated';
-import {Request, Response} from "express";
+import {Request, Response, NextFunction} from "express";
 
 
 const app = express();
@@ -25,7 +25,7 @@ app.use(flash());
 app.use(lusca.xframe("SAMEORIGIN"));
 app.use(lusca.xssProtection(true));
 
-app.use(function(req, res, next) {
+app.use(function(req: Request, res: Response, next:NextFunction) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
