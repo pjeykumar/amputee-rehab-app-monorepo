@@ -14,7 +14,7 @@ spec:
         spec:
             containers:
                 - name: auth
-                  image: amprehabapp/auth
+                  image: eu.gcr.io/dev-rehab-app/auth
                   env:
                       - name: JWT_KEY
                         valueFrom:

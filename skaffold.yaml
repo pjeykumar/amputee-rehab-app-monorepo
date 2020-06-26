@@ -8,7 +8,7 @@ build:
   local:
     push: false
   artifacts:
-    - image: amprehabapp/auth
+    - image: eu.gcr.io/dev-rehab-app/auth
       context: auth
       docker:
         dockerfile: Dockerfile
@@ -16,15 +16,15 @@ build:
         manual:
           - src: "src/**/*.ts"
             dest: .
-    # - image: amprehabapp/activity-recorder
-    #   context: activity-recorder
-    #   docker:
-    #       dockerfile: Dockerfile
-    #   sync:
-    #       manual:
-    #           - src: 'src/**/*.ts'
-    #             dest: .
-    - image: amprehabapp/client
+    - image: eu.gcr.io/dev-rehab-app/activity-recorder
+      context: activity-recorder
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "src/**/*.ts"
+            dest: .
+    - image: eu.gcr.io/dev-rehab-app/client
       context: web
       docker:
         dockerfile: Dockerfile
@@ -32,3 +32,8 @@ build:
         manual:
           - src: "**/*.js"
             dest: .
+profiles:
+  - name: production
+    build:
+      local:
+        push: true

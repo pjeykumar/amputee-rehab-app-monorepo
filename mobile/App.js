@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import MainStackNavigation from './src/navigation/MainStackNavigation';
+import { MainStackNavigation } from './src/navigation';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { PaperTheme, NavigationTheme } from './styles';
 import { AuthProvider } from './src/contexts/AuthContext/AuthContext';

@@ -1,0 +1,20 @@
+name: tests-mobile
+on:
+  pull_request:
+    paths:
+      - "mobile/**"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: cd mobile && yarn
+      - uses: paambaati/codeclimate-action@v2.5.7
+        env:
+          CC_TEST_REPORTER_ID: b448bc9b1734ce66b732cbc0dda886a0e99c5b9e2a75f5bb116b6839914d0085
+        with:
+          debug: true
+          coverageCommand: yarn mobile:coverage
+          coverageLocations: |
+            ${{github.workspace}}/mobile/coverage/lcov.info:lcov
