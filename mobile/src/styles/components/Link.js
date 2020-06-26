@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text } from '../components';
-import { font } from '../../styles/constants';
+import { font } from '../constants';
 
 const Link = ({ children, onPress }) => {
   return (

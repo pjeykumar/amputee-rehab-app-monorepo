@@ -24,7 +24,7 @@ const colours = {
   /* Yellow */
   yellow: '#FFC800',
   yellowLight: '#F9D386',
-  yellowLighter: '#FFF7E6',
+  yellowLighter: '#FFF2D8',
   yellowDark: '#EC9F00',
   yellowDarker: '#9F6C03',
 

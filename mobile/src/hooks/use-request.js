@@ -10,9 +10,7 @@ export default () => {
     setData(null);
 
     try {
-      const response = await fetch(url, {
-        method
-      })
+      const response = await axios[method](url, body);
       setData(response.data);
     } catch (error) {
       if (error.response.data.errors) setErrors(error.response.data.errors);

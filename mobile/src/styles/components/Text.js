@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/native';
-import { colours, font } from '../../styles/constants';
+import { colours, font } from '../constants';
 import { Text as PaperText } from 'react-native-paper';
 
 const StyledText = styled(PaperText)`

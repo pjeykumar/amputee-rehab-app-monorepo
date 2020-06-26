@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Title, Button, Layout, Container, TextInput, Link, Text } from '../../../styles/components';
+import { Title, Button, Layout, Container, TextInput, Link, Text } from '../../styles/components';
 import { withAuthContext } from '../../contexts/AuthContext/AuthContext';
 import styled from '@emotion/native';
-import { font } from '../../../styles/constants';
+import { font } from '../../styles/constants';
 
 const Login = ({ navigation, login }) => {
   const [email, setEmail] = useState('');
@@ -65,3 +65,4 @@ const Login = ({ navigation, login }) => {
 };
 
 export default withAuthContext(Login);
+

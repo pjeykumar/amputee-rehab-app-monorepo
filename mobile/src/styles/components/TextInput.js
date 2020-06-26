@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/native';
 import { TextInput as PaperTextInput, Subheading } from 'react-native-paper';
 import { Text } from '../components';
-import { font } from '../../styles/constants';
+import { font } from '../constants';
 
 const StyledTextInput = styled(PaperTextInput)`
   font-size: ${font.default};
