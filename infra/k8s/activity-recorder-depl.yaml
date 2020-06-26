@@ -14,7 +14,7 @@ spec:
         spec:
             containers:
                 - name: activity-recorder
-                  image: amprehabapp/activity-recorder
+                  image: eu.gcr.io/dev-rehab-app/activity-recorder
                   env:
                       - name: JWT_KEY
                         valueFrom:

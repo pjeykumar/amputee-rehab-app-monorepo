@@ -1,7 +1,7 @@
 import React from 'react';
-import { Button, Title } from '../../../styles/components';
+import { Button, Title } from '../../styles/components';
 
-const Home = ({ navigation }) => {
+const HomeScreen = ({ navigation }) => {
   return (
     <>
       <Title>React Native with 👩‍🎤 Emotion</Title>
@@ -12,4 +12,4 @@ const Home = ({ navigation }) => {
   );
 };
 
-export default Home;
+export default HomeScreen;

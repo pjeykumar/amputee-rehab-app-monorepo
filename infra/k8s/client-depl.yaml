@@ -14,7 +14,7 @@ spec:
         spec:
             containers:
                 - name: client
-                  image: amprehabapp/client
+                  image: eu.gcr.io/dev-rehab-app/client
 ---
 apiVersion: v1
 kind: Service
