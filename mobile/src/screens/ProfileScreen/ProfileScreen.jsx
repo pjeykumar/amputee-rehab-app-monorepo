@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Layout, Title } from '../../../styles/components';
+import { Layout, Title } from '../../styles/components';
 
 const ProfileScreen = () => (
   <Layout>

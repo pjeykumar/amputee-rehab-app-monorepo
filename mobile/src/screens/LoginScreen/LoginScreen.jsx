@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import { Button } from '../../../styles/components';
+import { Button } from '../../styles/components';
 
 const LoginScreen = ({ navigation }) => {
   return (
