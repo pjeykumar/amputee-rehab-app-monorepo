@@ -1,24 +1,26 @@
+import { errorHandler, NotFoundError } from '@amp-rehab-app/common';
+
 import express from 'express';
 import passport from "passport";
 import lusca from "lusca";
 import flash from "express-flash";
-import session from 'express-session';
+import session from "express-session";
 import bodyParser from "body-parser";
-import cookieParser  from 'cookie-parser';
-import { router } from './config/passport';
-import { isAuthenticated } from './util/user_authenticated';
+import cors from "cors";
 import {Request, Response, NextFunction} from "express";
+
+import { stravaAuthRouter } from "./routes/strava-auth";
+import { stravaCallbackRouter } from "./routes/strava-callback";
+import { homeRouter } from "./routes/home-test";
+import { authenticatedStravaRouter } from "./routes/authenticated-strava";
 
 
 const app = express();
+app.set('trust proxy', true);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cookieParser());
-app.use(session({
-    secret: 'XYZ123',
-    resave: false,
-    saveUninitialized: false
-}));
+app.use(cors());
+app.use(session({secret: 'test', saveUninitialized: true, resave: true})); 
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
@@ -31,15 +33,15 @@ app.use(function(req: Request, res: Response, next:NextFunction) {
   next();
 });
 
-app.use(router);
+app.use(stravaAuthRouter);
+app.use(stravaCallbackRouter);
+app.use(homeRouter);
+app.use(authenticatedStravaRouter);
 
-app.get('/', (req: Request, res: Response) =>{
-    res.send("Hello world");
+app.all('*', () => {
+  throw new NotFoundError();
 });
 
-app.get('/account', isAuthenticated, (req: Request, res: Response) =>{
-  console.log(req.user);
-  res.send("ONLY STRAVA ACCESS ALLOWED!");
-});
+app.use(errorHandler);
 
-export default app;
+export { app };

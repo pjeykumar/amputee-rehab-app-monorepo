@@ -1,6 +1,3 @@
-
-import * as express from 'express';
-const router = express.Router();
 import passport from 'passport';
 import passportStrava from 'passport-strava-oauth2';
 import _ from "lodash";
@@ -22,7 +19,7 @@ const STRAVA_CLIENT_SECRET = process.env.STRAVA_CLIENT_SECRET;
 passport.use(new StravaStrategy({
   clientID: STRAVA_CLIENT_ID,
   clientSecret: STRAVA_CLIENT_SECRET,
-  callbackURL: "http://localhost:5000/auth/strava/callback"
+  callbackURL: "http://localhost:3000/strava/auth/callback"
 },
 (req:Request,accessToken:any, refreshToken:any, profile:any, done:any) => {
   process.nextTick(function () {
@@ -31,7 +28,7 @@ passport.use(new StravaStrategy({
     // represent the logged-in user.  In a typical application, you would want
     // to associate the Strava account with a user record in your database,
     // and return that user instead.
-    return done(null, profile);
+    return done(null, profile, accessToken, refreshToken);
   });
 }
 ));
@@ -44,16 +41,4 @@ passport.deserializeUser(function(obj, done) {
   done(null, obj);
 });
 
-router.get('/auth/strava',
-    passport.authenticate('strava',{scope: ['activity:read_all,activity:write']})
-);
-
-router.get('/auth/strava/callback',
-    passport.authenticate('strava', { failureRedirect: '/login' }),
-    function(req, res, next) {
-        // Successful authentication, redirect home.
-        console.log(res.json())
-        res.redirect('/account');
-});
-
-export { router };
+export { passport };

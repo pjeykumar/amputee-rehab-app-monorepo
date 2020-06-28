@@ -1,0 +1,1 @@
+// api route to get activities of authenticated user
