@@ -15,9 +15,9 @@ router.post(
     ],
     validateRequest,
     async (req: Request, res: Response) => {
-        const { exercise, duration } = req.body;
+        const { exercise, duration, distance, description, difficulty, photos } = req.body;
 
-        const activity = Activity.build({ userId: req.currentUser!.id, exercise, duration });
+        const activity = Activity.build({ userId: req.currentUser!.id, exercise, duration, distance, description, difficulty, photos });
 
         await activity.save();
 

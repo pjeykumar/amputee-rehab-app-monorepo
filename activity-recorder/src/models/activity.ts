@@ -4,12 +4,20 @@ interface ActivityAttrs {
     userId: string;
     exercise: string;
     duration: number;
+    distance: number;
+    description: string;
+    difficulty: number;
+    photos: [string];
 }
 
 interface ActivityDoc extends mongoose.Document {
     userId: string;
     exercise: string;
     duration: number;
+    distance: number;
+    description: string;
+    difficulty: number;
+    photos: [string];
 }
 
 interface ActivityModel extends mongoose.Model<ActivityDoc> {
@@ -21,6 +29,10 @@ const activitySchema = new mongoose.Schema(
         userId: { type: String, required: true },
         exercise: { type: String, required: true },
         duration: { type: Number, required: true },
+        distance: { type: Number, required: true },
+        description: { type: String, required: true },
+        difficulty: { type: Number, required: true },
+        photos: { type: [String], required: false },
     },
     {
         toJSON: {

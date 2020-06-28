@@ -10,12 +10,12 @@ const createActivity = (cookie: string[], body: any) => {
 describe('Update activity route handler', () => {
     let id: string;
     let cookie: string[];
-    let body = { exercise: 'run', duration: 10 };
+    let body = { exercise: 'run', duration: 10, distance: 10, description:'test exercise', difficulty:5, photos:null };
 
     beforeEach(() => {
         id = mongoose.Types.ObjectId().toHexString();
         cookie = global.signin();
-        body = { exercise: 'run', duration: 10 };
+        body = { exercise: 'run', duration: 10, distance: 10, description:'test exercise', difficulty:5, photos:null };
     });
 
     it('has a route handler listening to PUT /api/activity/:id', async () => {
@@ -40,7 +40,7 @@ describe('Update activity route handler', () => {
         await request(app)
             .put(`/api/activity/${resp.body.id}`)
             .set('Cookie', cookie)
-            .send({ exercise: 'run', duration: 5 })
+            .send({ exercise: 'run', duration: 10, distance: 10, description:'test exercise', difficulty:5, photos:null })
             .expect(401);
     });
 
@@ -57,7 +57,7 @@ describe('Update activity route handler', () => {
         const createResponse = await request(app)
             .post('/api/activity')
             .set('Cookie', cookie)
-            .send({ exercise: 'run', duration: 10 });
+            .send({ exercise: 'run', duration: 10, distance: 10, description:'test exercise', difficulty:5, photos:null });
 
         expect(await Activity.find({})).toHaveLength(1);
 
@@ -66,11 +66,11 @@ describe('Update activity route handler', () => {
         await request(app)
             .put(`/api/activity/${createResponse.body.id}`)
             .set('Cookie', cookie)
-            .send({ exercise, duration: 5 })
+            .send({ exercise, duration: 10, distance: 10, description:'test exercise', difficulty:5, photos:null })
             .expect(202);
 
         const activities = await Activity.find({});
         expect(activities.length).toBe(1);
-        expect(activities[0].duration).toBe(5);
+        expect(activities[0].duration).toBe(10);
     });
 });

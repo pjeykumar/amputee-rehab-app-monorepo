@@ -3,7 +3,7 @@ import { app } from '../../app';
 import { Activity } from '../../models/activity';
 
 const createExercise = (cookie: string[]) => {
-    return request(app).post('/api/activity').set('Cookie', cookie).send({ exercise: 'run', duration: 10 });
+    return request(app).post('/api/activity').set('Cookie', cookie).send({ exercise: 'run', duration: 10, distance: 10, description:'test exercise', difficulty:5, photos:null });
 };
 
 describe('index route handler', () => {

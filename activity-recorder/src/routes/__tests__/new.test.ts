@@ -4,12 +4,12 @@ import { Activity } from '../../models/activity';
 
 describe('New activity route handler', () => {
     it('has a route handler listening to POST /api/activity', async () => {
-        const resp = await request(app).post('/api/activity').send({ exercise: 'run', duration: 10 });
+        const resp = await request(app).post('/api/activity').send({ exercise: 'run', duration: 10, distance: 10, description:'test exercise', difficulty:5, photos:null });
         expect(resp.status).not.toEqual(404);
     });
 
     it('can only be access if the user is signed in', async () => {
-        await request(app).post('/api/activity').send({ exercise: 'run', duration: 10 }).expect(401);
+        await request(app).post('/api/activity').send({ exercise: 'run', duration: 10, distance: 10, description:'test exercise', difficulty:5, photos:null }).expect(401);
     });
 
     it('should return other than 401 if is logged in', async () => {
@@ -30,7 +30,7 @@ describe('New activity route handler', () => {
         const response = await request(app)
             .post('/api/activity')
             .set('Cookie', global.signin())
-            .send({ exercise, duration: 10 })
+            .send({ exercise, duration: 10, distance: 10, description:'test exercise', difficulty:5, photos:null})
             .expect(201);
 
         const newActivity = await Activity.findById(response.body.id);
