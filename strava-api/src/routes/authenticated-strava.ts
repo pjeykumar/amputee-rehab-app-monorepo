@@ -18,8 +18,9 @@ router.get('/account', authenticated.isAuthenticated, async (req: Request, res: 
     );
     
     const activities = JSON.stringify(response.data);
-    const act = extractActivityData(req, activities);
-    console.log(act);
+    console.log(activities);
+    const activity = extractActivityData(req, activities);
+    console.log(activity);
     res.send("Strava user is authenticated");
 });
 
