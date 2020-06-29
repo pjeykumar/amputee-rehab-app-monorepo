@@ -21,13 +21,16 @@ passport.use(new StravaStrategy({
   clientSecret: STRAVA_CLIENT_SECRET,
   callbackURL: "http://localhost:3000/strava/auth/callback"
 },
-(req:Request,accessToken:any, refreshToken:any, profile:any, done:any) => {
+(accessToken:any, refreshToken:any, profile:any, done:any) => {
   process.nextTick(function () {
     
     // To keep the example simple, the user's Strava profile is returned to
     // represent the logged-in user.  In a typical application, you would want
     // to associate the Strava account with a user record in your database,
     // and return that user instead.
+    console.log("Access token is:" + accessToken);
+    console.log("Refresh token is:" + refreshToken);
+    console.log("Profile is:" + profile.displayName);
     return done(null, profile, accessToken, refreshToken);
   });
 }
