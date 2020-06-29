@@ -21,7 +21,13 @@ router.put(
         if (activity.userId !== req.currentUser?.id) throw new NotAuthorisedError();
 
         activity.exercise = req.body.exercise;
+        activity.distance = req.body.distance;
         activity.duration = req.body.duration;
+        activity.description = req.body.description;
+        activity.difficulty = req.body.difficulty;
+        activity.photos = req.body.photos;
+        activity.privacy = req.body.privacy;
+
 
         await activity.save();
 
