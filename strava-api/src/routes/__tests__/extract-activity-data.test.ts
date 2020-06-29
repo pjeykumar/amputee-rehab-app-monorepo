@@ -1,4 +1,4 @@
-import { Activity } from '../../models/activity';
+import { Activity } from '../../../../activity-recorder/src/models/activity';
 import { extractActivityData } from '../extract-activity-data';
 import { Request } from 'express';
 

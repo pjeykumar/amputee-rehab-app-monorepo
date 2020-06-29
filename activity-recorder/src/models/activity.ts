@@ -7,7 +7,7 @@ interface ActivityAttrs {
     distance: number;
     description: string;
     difficulty: number;
-    photos: [string];
+    photos: string[];
 }
 
 interface ActivityDoc extends mongoose.Document {
@@ -17,7 +17,7 @@ interface ActivityDoc extends mongoose.Document {
     distance: number;
     description: string;
     difficulty: number;
-    photos: [string];
+    photos: string[];
 }
 
 interface ActivityModel extends mongoose.Model<ActivityDoc> {

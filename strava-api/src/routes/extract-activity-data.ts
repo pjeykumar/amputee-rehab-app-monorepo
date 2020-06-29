@@ -1,4 +1,4 @@
-import { Activity } from '../models/activity';
+import { Activity } from '../../../activity-recorder/src/models/activity';
 import { Request } from 'express';
 
 export const extractActivityData = (req: Request, activities:any) => {
