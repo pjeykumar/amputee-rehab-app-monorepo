@@ -1,35 +1,49 @@
 import React from 'react';
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { LoginScreen, ActivitiesScreen, LeaderboardScreen, ProfileScreen, SettingsScreen } from '../../screens';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Ionicons } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
+import { colours, font } from '../../styles/constants';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Title, Button, Layout, Container, TextInput, Link, Text } from '../../styles/components';
 
-const Tab = createMaterialBottomTabNavigator();
+const Tab = createBottomTabNavigator();
 
 function BottomStackNavigation() {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
-        tabBarIcon: ({ focused, color, size }) => {
+        tabBarIcon: ({ focused, color }) => {
           let iconName;
 
           if (route.name === 'Leaderboard') {
-            iconName = focused ? 'md-checkmark-circle' : 'md-checkmark-circle';
+            iconName = focused ? 'trophy' : 'trophy';
           } else if (route.name === 'Activites') {
-            iconName = focused ? 'md-checkmark-circle' : 'md-checkmark-circle';
+            iconName = focused ? 'calendar-o' : 'calendar-o';
           } else if (route.name === 'Profile') {
-            iconName = focused ? 'md-checkmark-circle' : 'md-checkmark-circle';
+            iconName = focused ? 'user' : 'user';
           } else if (route.name === 'Settings') {
-            iconName = focused ? 'md-checkmark-circle' : 'md-checkmark-circle';
+            iconName = focused ? 'cog' : 'cog';
           }
 
-          // You can return any component that you like here!
-          return <Ionicons name={iconName} size={20} color={color} />;
+          return <FontAwesome name={iconName} size={focused ? 22 : 20} color={color} />;
+        },
+        tabBarLabel: ({ focused }) => {
+          return (
+            <Text
+              fontSize={font.small}
+              color={focused ? colours.blue : colours.white}
+              fontWeight={focused ? font.bold : font.regular}
+            >
+              {route.name}
+            </Text>
+          );
         },
       })}
       tabBarOptions={{
-        activeTintColor: 'tomato',
-        inactiveTintColor: 'gray',
+        activeTintColor: colours.blue,
+        inactiveTintColor: colours.white,
+        activeBackgroundColor: colours.blueDarker,
+        inactiveBackgroundColor: colours.blueDarker,
       }}
     >
       <Tab.Screen name="Activites" component={ActivitiesScreen} />
@@ -49,7 +63,7 @@ export default function MainStackNavigation() {
         headerShown: false,
       })}
     >
-      <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen name="Login" component={BottomStackNavigation} />
       <Stack.Screen name="Home" component={BottomStackNavigation} />
     </Stack.Navigator>
   );

@@ -5,7 +5,7 @@ const font = {
 
   /* Weights */
   thin: '300',
-  regular: '400',
+  normal: '400',
   thick: '500',
   bold: '800',
 
