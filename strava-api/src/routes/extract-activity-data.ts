@@ -19,9 +19,8 @@ export const extractActivityData = (req: Request, activities:any) => {
         //user id should be replaced with req.userId but currently undefined because common not being used.
         //this is an example activity which would be sent using the NATS streaming server.
         strava_activity = Activity.build({ userId, exercise, duration, distance, description, difficulty, photos });
+        strava_activities.push(strava_activity);
     });
-
-    strava_activities.push(strava_activity);
 
     return strava_activities;
 };
