@@ -63,7 +63,7 @@ export default function MainStackNavigation() {
         headerShown: false,
       })}
     >
-      <Stack.Screen name="Login" component={BottomStackNavigation} />
+      <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="Home" component={BottomStackNavigation} />
     </Stack.Navigator>
   );

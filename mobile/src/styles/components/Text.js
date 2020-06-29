@@ -4,7 +4,7 @@ import { colours, font } from '../constants';
 import { Text as PaperText } from 'react-native-paper';
 
 const StyledText = styled(PaperText)`
-  font-family: ${font.family};
+  font-family: ${(props) => (props.fontFamily !== undefined ? props.fontFamily : font.family)};
   font-size: ${(props) => (props.fontSize !== undefined ? props.fontSize : font.default)};
   font-weight: ${(props) => (props.fontWeight !== undefined ? props.fontWeight : font.weight)};
   color: ${(props) => (props.color !== undefined ? props.color : colours.greyDarker)};

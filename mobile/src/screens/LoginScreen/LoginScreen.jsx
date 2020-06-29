@@ -28,41 +28,34 @@ const Login = ({ navigation, login }) => {
     align-self: flex-end;
   `;
 
+  const StyledLayout = styled(Layout)`
+    justify-content: center;
+  `;
+
   return (
-    <Layout>
-      <Title large>Login</Title>
-      <Container>
-        {error ? (
-          <React.Fragment>
-            {error.map(({ message, field }) => (
-              <Text key={message}>{message}</Text>
-            ))}
-          </React.Fragment>
-        ) : null}
-        <TextInput
-          title="Email address"
-          value={email}
-          placeholder={'e.g. someone@abc.com'}
-          onChange={(event) => setEmail(event.nativeEvent.text)}
-        />
-        <TextInput
-          title="Password"
-          secureTextEntry={true}
-          value={password}
-          onChange={(event) => setPassword(event.nativeEvent.text)}
-        />
-        <Link onPress={() => console.log('Forgotten Password link pressed')}>Forgotten your password?</Link>
-        <StyledButton small onPress={() => onSubmit()}>
-          Login
-        </StyledButton>
-      </Container>
+    <StyledLayout>
+      <Title large>Login or Register</Title>
+      {error ? (
+        <React.Fragment>
+          {error.map(({ message, field }) => (
+            <Text key={message}>{message}</Text>
+          ))}
+        </React.Fragment>
+      ) : null}
+      <TextInput
+        title="Enter your email address to begin"
+        value={email}
+        placeholder={'e.g. someone@abc.com'}
+        onChange={(event) => setEmail(event.nativeEvent.text)}
+      />
       <Text fontSize={font.small}>
-        If you don't have an account,{' '}
-        <Link onPress={() => console.log('Register here link pressed')}>Register here</Link>
+        I have read and agree to the{' '}
+        <Link onPress={() => console.log('Terms of Service link pressed')}>Terms of Service</Link> and the{' '}
+        <Link onPress={() => console.log('Privacy Policy link pressed')}>Privacy Policy</Link>
       </Text>
-    </Layout>
+      <StyledButton onPress={() => onSubmit()}>Get started {'>>'}</StyledButton>
+    </StyledLayout>
   );
 };
 
 export default withAuthContext(Login);
-

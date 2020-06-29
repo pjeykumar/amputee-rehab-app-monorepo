@@ -2,11 +2,13 @@ import React from 'react';
 import styled from '@emotion/native';
 import { TextInput as PaperTextInput, Subheading } from 'react-native-paper';
 import { Text } from '../components';
-import { font } from '../constants';
+import { font, colours } from '../constants';
 
 const StyledTextInput = styled(PaperTextInput)`
-  font-size: ${font.default};
+  font-size: ${font.small};
+  background-color: ${colours.white};
   height: 40px;
+  margin: 8px 0;
 `;
 
 const StyledTextInputContainer = styled.View`

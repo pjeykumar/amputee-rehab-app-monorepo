@@ -6,7 +6,6 @@ import { Text } from '../../styles/components';
 
 const StyledButton = styled(PaperButton)`
   margin: 8px 0;
-  height: 28px;
   justify-content: center;
 
   background-color: ${(props) => {
@@ -29,7 +28,7 @@ const StyledButton = styled(PaperButton)`
 const Button = ({ children, mode = 'contained', height, ...props }) => {
   return (
     <StyledButton uppercase={false} mode={mode} {...props}>
-      <Text color={colours.white} fontWeight={font.thick}>
+      <Text color={colours.white} fontWeight={font.bold} fontSize={font.small}>
         {children}
       </Text>
     </StyledButton>
