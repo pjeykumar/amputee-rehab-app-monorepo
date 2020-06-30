@@ -5,7 +5,6 @@ import { FontAwesome } from '@expo/vector-icons';
 import { colours, font } from '../../styles/constants';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Text } from '../../styles/components';
-import View from 'react-native';
 
 const Tab = createBottomTabNavigator();
 
@@ -15,6 +14,7 @@ const tabBarOptions = {
   activeBackgroundColor: colours.blueDarker,
   inactiveBackgroundColor: colours.blueDarker,
   style: { height: 64 },
+  adaptive: false,
 };
 
 const getScreenOptions = (route) => ({
