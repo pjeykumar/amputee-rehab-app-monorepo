@@ -1,14 +1,20 @@
 import React from 'react';
 import { Button as PaperButton } from 'react-native-paper';
-import styled, { css } from '@emotion/native';
-import colors from '../constants/ColorScheme';
+import styled from '@emotion/native';
+import { colours, font } from '../constants';
+import { Text } from './index';
 
 const StyledButton = styled(PaperButton)`
+  margin: 8px 0;
+  justify-content: center;
+
+  align-self: ${(props) => (props.alignSelf !== undefined ? props.alignSelf : 'auto')};
+
   background-color: ${(props) => {
     if (props.primary) {
-      return colors.blueDark;
+      return colours.blueDark;
     } else if (props.secondary) {
-      return colors.yellowDark;
+      return colours.yellowDark;
     }
   }};
 
@@ -21,10 +27,12 @@ const StyledButton = styled(PaperButton)`
   }};
 `;
 
-const Button = ({ children, mode = 'contained', color, onPress = () => {}, ...props }) => {
+const Button = ({ children, mode = 'contained', ...props }) => {
   return (
-    <StyledButton mode={mode} color={color} onPress={onPress} {...props}>
-      {children}
+    <StyledButton uppercase={false} mode={mode} {...props}>
+      <Text color={colours.white} fontWeight={font.bold} fontSize={font.small}>
+        {children}
+      </Text>
     </StyledButton>
   );
 };

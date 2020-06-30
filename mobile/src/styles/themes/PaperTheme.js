@@ -1,27 +1,27 @@
-import colors from '../constants/ColorScheme';
+import { colours } from '../constants';
 
 const PaperTheme = {
   dark: false,
   roundness: 4,
   colors: {
-    primary: colors.blueDark,
-    accent: colors.green,
-    background: colors.white,
-    surface: colors.white,
-    error: colors.redDark,
-    text: colors.greyDarker,
-    onBackground: colors.black,
-    onSurface: colors.black,
+    primary: colours.blueDarker,
+    accent: colours.green,
+    background: colours.white,
+    surface: colours.white,
+    error: colours.redDark,
+    text: colours.greyDarker,
+    onBackground: colours.black,
+    onSurface: colours.black,
     disabled: 'rgba(0, 0, 0, 0.26)',
     placeholder: 'rgba(0, 0, 0, 0.54)',
     backdrop: 'rgba(0, 0, 0, 0.5)',
-    notification: colors.red,
+    notification: colours.red,
   },
   fonts: {
-    regular: { fontFamily: 'Avenir', fontWeight: '400' },
-    medium: { fontFamily: 'Avenir', fontWeight: '500' },
-    light: { fontFamily: 'Avenir', fontWeight: '300' },
-    thin: { fontFamily: 'Avenir', fontWeight: '100' },
+    regular: { fontWeight: '400' },
+    medium: { fontWeight: '500' },
+    light: { fontWeight: '300' },
+    thin: { fontWeight: '100' },
   },
   animation: { scale: 1 },
 };
