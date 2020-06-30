@@ -1,9 +1,11 @@
-const ColorScheme = {
+const colours = {
   /* Black */
   black: '#000',
 
   /* White */
   white: '#FFF',
+
+  shadow: 'rgba(157, 154, 149, 0.5)',
 
   /* Grey */
   grey: '#9D9A95',
@@ -39,4 +41,4 @@ const ColorScheme = {
   greenDarker: '#1D3E10',
 };
 
-export default ColorScheme;
+export default colours;
