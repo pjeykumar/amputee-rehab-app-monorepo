@@ -12,6 +12,9 @@ router.put(
     [
         body('exercise').not().isEmpty().withMessage('You need to provide an exercise'),
         body('duration').isNumeric().withMessage('You need to provide a duration'),
+        body('distance').isNumeric().withMessage('You need to provide a distance'),
+        body('difficulty').isNumeric().withMessage('You need to provide the exercise difficulty'),
+        body('privacy').not().isEmpty().withMessage('You need to provide us with the privacy setting for this activity'),
     ],
     validateRequest,
     async (req: Request, res: Response) => {
