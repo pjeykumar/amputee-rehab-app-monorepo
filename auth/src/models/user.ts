@@ -4,11 +4,15 @@ import mongoose from 'mongoose';
 interface IUserAttrs {
   email: string;
   password: string;
+  code: string;
+  codeExpires: Date;
 }
 
 interface UserDoc extends mongoose.Document {
   email: string;
   password: string;
+  code: string;
+  codeExpires: Date;
 }
 
 interface UserModel extends mongoose.Model<UserDoc> {
@@ -21,7 +25,9 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    password: { type: String, required: true },
+    password: { type: String, required: false },
+    code: { type: String, required: false },
+    codeExpires: { type: Date, required: false },
   },
   {
     toJSON: {

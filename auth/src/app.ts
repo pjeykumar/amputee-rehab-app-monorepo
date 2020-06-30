@@ -7,9 +7,11 @@ import cookieSession from 'cookie-session';
 import cors from 'cors';
 
 import { currentUserRouter } from './routes/current-user';
-import { signinRouter } from './routes/signin';
 import { signoutRouter } from './routes/signout';
+import { authenticateRouter } from './routes/authenticate';
+import { confirmCodeRouter } from './routes/confirm-code';
 import { signupRouter } from './routes/signup';
+import { signinRouter } from './routes/signin';
 
 const app = express();
 // app.set('trust proxy', true);
@@ -26,9 +28,12 @@ app.use(
 );
 
 app.use(currentUserRouter);
-app.use(signinRouter);
 app.use(signoutRouter);
 app.use(signupRouter);
+app.use(signinRouter);
+
+app.use(authenticateRouter);
+app.use(confirmCodeRouter);
 
 app.all('*', async (req, res, next) => {
   throw new NotFoundError();

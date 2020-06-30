@@ -2,14 +2,14 @@ import request from 'supertest';
 import { app } from '../../app';
 
 it('should return the user when valid JWT provided', async () => {
-    const cookie = await global.signin();
+  const cookie = await global.signin();
 
-    const response = await request(app).get('/api/users/currentuser').set('Cookie', cookie).send().expect(200);
+  const response = await request(app).get('/api/users/currentuser').set('Cookie', cookie).send().expect(200);
 
-    expect(response.body.currentuser.email).toEqual('test@test.com');
+  expect(response.body.currentuser.email).toEqual('test@test.com');
 });
 
 it('responds with null if not authenticated', async () => {
-    const response = await request(app).get('/api/users/currentuser').send().expect(200);
-    expect(response.body.currentuser).toEqual(null);
+  const response = await request(app).get('/api/users/currentuser').send().expect(200);
+  expect(response.body.currentuser).toEqual(null);
 });
