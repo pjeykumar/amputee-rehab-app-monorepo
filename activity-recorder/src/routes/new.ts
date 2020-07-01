@@ -12,12 +12,15 @@ router.post(
     [
         body('exercise').not().isEmpty().withMessage('You need to provide an exercise'),
         body('duration').isNumeric().withMessage('You need to provide a duration'),
+        body('distance').isNumeric().withMessage('You need to provide a distance'),
+        body('difficulty').isNumeric().withMessage('You need to provide the exercise difficulty'),
+        body('privacy').not().isEmpty().withMessage('You need to provide us with the privacy setting for this activity'),
     ],
     validateRequest,
     async (req: Request, res: Response) => {
-        const { exercise, duration } = req.body;
+        const { exercise, duration, distance, description, difficulty, photos,privacy } = req.body;
 
-        const activity = Activity.build({ userId: req.currentUser!.id, exercise, duration });
+        const activity = Activity.build({ userId: req.currentUser!.id, exercise, duration, distance, description, difficulty, photos, privacy });
 
         await activity.save();
 
