@@ -33,7 +33,7 @@ const Login = ({ navigation, login }) => {
   `;
 
   return (
-    <StyledLayout>
+    <Layout justifyContent="center">
       <Title large>Login or Register</Title>
       {error ? (
         <React.Fragment>
@@ -53,8 +53,10 @@ const Login = ({ navigation, login }) => {
         <Link onPress={() => console.log('Terms of Service link pressed')}>Terms of Service</Link> and the{' '}
         <Link onPress={() => console.log('Privacy Policy link pressed')}>Privacy Policy</Link>
       </Text>
-      <StyledButton onPress={() => onSubmit()}>Get started {'>>'}</StyledButton>
-    </StyledLayout>
+      <Button onPress={() => onSubmit()} alignSelf="flex-end">
+        Get started {'>>'}
+      </Button>
+    </Layout>
   );
 };
 

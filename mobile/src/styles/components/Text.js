@@ -9,6 +9,7 @@ const StyledText = styled(PaperText)`
   font-weight: ${(props) => (props.fontWeight !== undefined ? props.fontWeight : font.weight)};
   color: ${(props) => (props.color !== undefined ? props.color : colours.greyDarker)};
   text-decoration: ${(props) => (props.textDecoration !== undefined ? props.textDecoration : 'none')};
+  margin: ${(props) => (props.margin !== undefined ? props.margin : 0)};
 `;
 
 const Text = ({ children, ...props }) => {

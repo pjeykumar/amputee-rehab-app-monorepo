@@ -4,20 +4,29 @@ import MainStackNavigation from './src/navigation/MainStackNavigation/MainStackN
 import { Provider as PaperProvider } from 'react-native-paper';
 import { PaperTheme, NavigationTheme } from './src/styles';
 import { AuthProvider } from './src/contexts/AuthContext/AuthContext';
-import { SafeAreaView } from 'react-native';
 import { colours } from './src/styles/constants';
+import { SafeAreaView } from './src/styles/components';
+import { AppLoading } from 'expo';
+import { useFonts } from '@use-expo/font';
 
 export default function App() {
-  return (
-    <AuthProvider>
-      <PaperProvider theme={PaperTheme}>
-        <SafeAreaView style={{ flex: 0, backgroundColor: colours.yellowLighter }} />
-        <SafeAreaView style={{ flex: 1, backgroundColor: colours.blueDarker }}>
-          <NavigationContainer theme={NavigationTheme}>
-            <MainStackNavigation />
-          </NavigationContainer>
-        </SafeAreaView>
-      </PaperProvider>
-    </AuthProvider>
-  );
+  const [isLoaded] = useFonts({
+    Avenir: require('./assets/fonts/Avenir-Book.ttf'),
+  });
+
+  if (!isLoaded) {
+    return <AppLoading />;
+  } else
+    return (
+      <AuthProvider>
+        <PaperProvider theme={PaperTheme}>
+          <SafeAreaView flex={0} backgroundColor={colours.yellowLighter} />
+          <SafeAreaView>
+            <NavigationContainer theme={NavigationTheme}>
+              <MainStackNavigation />
+            </NavigationContainer>
+          </SafeAreaView>
+        </PaperProvider>
+      </AuthProvider>
+    );
 }

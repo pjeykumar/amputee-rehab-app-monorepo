@@ -7,7 +7,7 @@ const font = {
   thin: '300',
   normal: '400',
   thick: '500',
-  bold: '900',
+  bold: '800',
 
   family: 'Avenir',
 };
