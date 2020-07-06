@@ -9,7 +9,7 @@ export const AuthProvider = ({ children }) => {
   const { response, doRequest } = useRequest();
 
   const login = async (formData, callback) => {
-    await doRequest('http://localhost/api/users/signin', 'post', formData);
+    await doRequest('http://localhost/api/users/auth', 'post', formData);
 
     if (response.errors) console.warn('auth context -> sign in error', JSON.stringify(response.errors, null, 2));
 

@@ -14,6 +14,9 @@ export default function App() {
     Avenir: require('./assets/fonts/Avenir-Book.ttf'),
   });
 
+  //Removes yellow warning box for devs, remove later
+  console.disableYellowBox = true;
+
   if (!isLoaded) {
     return <AppLoading />;
   } else

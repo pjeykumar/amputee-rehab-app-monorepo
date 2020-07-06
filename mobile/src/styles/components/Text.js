@@ -7,7 +7,7 @@ const StyledText = styled(PaperText)`
   font-family: ${(props) => (props.fontFamily !== undefined ? props.fontFamily : font.family)};
   font-size: ${(props) => (props.fontSize !== undefined ? props.fontSize : font.default)};
   font-weight: ${(props) => (props.fontWeight !== undefined ? props.fontWeight : font.weight)};
-  color: ${(props) => (props.color !== undefined ? props.color : colours.greyDarker)};
+  color: ${(props) => (props.colour !== undefined ? props.colour : colours.greyDarker)};
   text-decoration: ${(props) => (props.textDecoration !== undefined ? props.textDecoration : 'none')};
   margin: ${(props) => (props.margin !== undefined ? props.margin : 0)};
 `;

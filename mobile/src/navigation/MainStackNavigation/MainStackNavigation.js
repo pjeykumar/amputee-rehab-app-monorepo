@@ -1,5 +1,5 @@
 import React from 'react';
-import { LoginScreen, ActivitiesScreen, LeaderboardScreen, ProfileScreen, SettingsScreen } from '../../screens';
+import { LoginScreen, ActivitiesScreen, LeaderboardScreen, ProfileScreen, SettingsScreen, LoginTokenScreen } from '../../screens';
 import { createStackNavigator } from '@react-navigation/stack';
 import { FontAwesome } from '@expo/vector-icons';
 import { colours, font } from '../../styles/constants';
@@ -68,6 +68,7 @@ export default function MainStackNavigation() {
       })}
     >
       <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen name="LoginToken" component={LoginTokenScreen} />
       <Stack.Screen name="Home" component={BottomStackNavigation} />
     </Stack.Navigator>
   );

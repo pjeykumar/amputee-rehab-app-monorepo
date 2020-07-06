@@ -6,13 +6,12 @@ import { font } from '../../styles/constants';
 
 const Login = ({ navigation, login }) => {
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
 
   const onSubmit = async () => {
     setError(null);
-    const { data, errors } = await login({ email, password }, () => {
-      navigation.navigate('Home');
+    const { data, errors } = await login({ email }, () => {
+      navigation.navigate('LoginToken');
     });
 
     if (errors) setError(errors);
@@ -23,15 +22,7 @@ const Login = ({ navigation, login }) => {
   if (error) {
     Errors = <Container></Container>;
   }
-
-  const StyledButton = styled(Button)`
-    align-self: flex-end;
-  `;
-
-  const StyledLayout = styled(Layout)`
-    justify-content: center;
-  `;
-
+ 
   return (
     <Layout justifyContent="center">
       <Title large>Login or Register</Title>
