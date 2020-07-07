@@ -11,9 +11,9 @@ describe('Update profile route handler', () => {
     let cookie: string[];
     let body = { isServing: true, branch: 'testBranch', serviceId:'028292', email: 'test@gmail.com', fullName:'Amputee Test', displayName: 'ampTest123', profilePic: 'test.png', bio:'Test bio'};
 
-    beforeEach(() => { 
+    beforeEach(async () => { 
         id = mongoose.Types.ObjectId().toHexString();
-        cookie = global.signin();
+        cookie = await global.signin();
     });
 
     it('has a route handler listening to PUT /api/activity/:id', async () => {
@@ -32,14 +32,9 @@ describe('Update profile route handler', () => {
         expect(response.status).not.toBe(401);
     });
 
-    it('should return 403 if the user does not have profile', async () => {
-        const resp = await getProfile(global.signin());
-
-        await request(app)
-            .put(`/api/profile/${resp.body.id}`)
-            .set('Cookie', cookie)
-            .send(body)
-            .expect(401);
+    it('responds with null if not authenticated', async () => {
+        const response = await request(app).get(`/api/profile`).set('Cookie', cookie).send().expect(200);
+        expect(response.body).toEqual(null);
     });
 
     it('should return 404 if profile does not exist', async () => {

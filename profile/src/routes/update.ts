@@ -7,8 +7,8 @@ const router = express.Router();
 
 router.put(
     '/api/profile/:id',
-    currentUser,
-    requireAuth,
+    [currentUser],
+    [requireAuth],
     [
         body('isServing').isBoolean().withMessage('You need to select whether you have served or are currently serving.'),
         body('branch').not().isEmpty().withMessage('You need to provide us with the military branch'),
@@ -22,7 +22,7 @@ router.put(
         const profile = await Profile.findById(req.params.id);
 
         if (!profile) throw new NotFoundError();
-        if (profile.userId !== req.currentUser!.id) throw new NotAuthorisedError();
+        if (profile.userId !== req.currentUser?.id) throw new NotAuthorisedError();
 
         profile.isServing = req.body.isServing;
         profile.branch = req.body.branch;

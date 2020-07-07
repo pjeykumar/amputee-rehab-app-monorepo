@@ -17,13 +17,13 @@ describe('index route handler', () => {
     });
 
     it("should only return logged in user's profile", async () => {
-        const cookie1 = global.signin();
-        await getProfile(cookie1);
-
+        const cookie = await global.signin();
+        await getProfile(cookie);
         expect(await Profile.find({}));
 
-        const response = await request(app).get('/api/profile').set('Cookie', cookie1).send().expect(200);
-        console.log(response.body);
-        expect(response.body).toHaveLength(1);
+        console.log(cookie);
+        const response = await request(app).get('/api/profile').set('Cookie', cookie).send().expect(200);
+        console.log(response);
+        expect(response.body.userprofile.email).toEqual('test@test.com');
     });
 });

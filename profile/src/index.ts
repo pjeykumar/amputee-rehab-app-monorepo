@@ -7,7 +7,7 @@ const start = async () => {
     }
 
     try {
-        await mongoose.connect('mongodb://profile-srv:27017/profile', {
+        await mongoose.connect('mongodb://profile-mongo-srv:27017/profile', {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             useCreateIndex: true,
