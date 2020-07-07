@@ -4,7 +4,7 @@ import { colours, font } from '../constants';
 
 const Title = ({ children }) => {
   return (
-    <Text color={colours.blueDarker} fontSize={font.large} fontWeight={font.bold}>
+    <Text colour={colours.blueDarker} fontSize={font.large} fontWeight={font.bold}>
       {children}
     </Text>
   );

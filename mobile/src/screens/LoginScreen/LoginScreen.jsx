@@ -4,13 +4,13 @@ import { withAuthContext } from '../../contexts/AuthContext/AuthContext';
 import styled from '@emotion/native';
 import { font } from '../../styles/constants';
 
-const Login = ({ navigation, login }) => {
+const Login = ({ navigation, generateToken }) => {
   const [email, setEmail] = useState('');
   const [error, setError] = useState(null);
 
   const onSubmit = async () => {
     setError(null);
-    const { data, errors } = await login({ email }, () => {
+    const { data, errors } = await generateToken({ email }, () => {
       navigation.navigate('LoginToken');
     });
 
@@ -22,7 +22,7 @@ const Login = ({ navigation, login }) => {
   if (error) {
     Errors = <Container></Container>;
   }
- 
+  
   return (
     <Layout justifyContent="center">
       <Title large>Login or Register</Title>
@@ -44,7 +44,7 @@ const Login = ({ navigation, login }) => {
         <Link onPress={() => console.log('Terms of Service link pressed')}>Terms of Service</Link> and the{' '}
         <Link onPress={() => console.log('Privacy Policy link pressed')}>Privacy Policy</Link>
       </Text>
-      <Button onPress={() => onSubmit()} alignSelf="flex-end">
+      <Button primary onPress={() => onSubmit()} alignSelf="flex-end">
         Get started {'>>'}
       </Button>
     </Layout>

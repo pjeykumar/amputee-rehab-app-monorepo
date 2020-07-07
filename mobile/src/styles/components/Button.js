@@ -3,12 +3,12 @@ import { Button as PaperButton } from 'react-native-paper';
 import styled from '@emotion/native';
 import { colours, font } from '../constants';
 import { Text } from './index';
-import { textColoursUtil } from '../../utils';
 
 const StyledButton = styled(PaperButton)`
   margin: 8px 0;
   justify-content: center;
   box-sizing: border-box;
+  border-width: 2px;
 
   align-self: ${(props) => (props.alignSelf !== undefined ? props.alignSelf : 'auto')};
 
@@ -28,12 +28,10 @@ const StyledButton = styled(PaperButton)`
   border-color: ${(props) => {
     if (props.primary) {
       return colours.blueDarker;
-    }
-  }};
-
-  border-width: ${(props) => {
-    if (props.primary) {
-      return '2px';
+    } else if (props.secondary) {
+      return colours.greyLighter;
+    } else if (props.tertiary) {
+      return colours.redDark;
     }
   }};
 
@@ -48,8 +46,30 @@ const StyledButton = styled(PaperButton)`
   }};
 `;
 
+const buttonTextColour = (props) => {
+  if (props.inverted) {
+    if (props.primary) {
+      return colours.blueDarker;
+    }
+    if (props.secondary) {
+      return colours.greyDark;
+    }
+    if (props.tertiary) {
+      return colours.redDark;
+    }
+  }
+  if (props.primary || props.tertiary) {
+    return colours.yellowLighter;
+  }
+  if (props.secondary) {
+    return colours.greyDarker;
+  }
+
+  return colours.yellowLighter;
+};
+
 const Button = ({ children, mode = 'contained', ...props }) => {
-  const textColour = textColoursUtil(props);
+  const textColour = buttonTextColour(props);
   return (
     <StyledButton uppercase={false} mode={mode} {...props}>
       <Text colour={textColour} fontWeight={font.bold} fontSize={font.small}>
