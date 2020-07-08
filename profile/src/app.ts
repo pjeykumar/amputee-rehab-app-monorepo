@@ -6,8 +6,9 @@ import { json } from 'body-parser';
 import cookieSession from 'cookie-session';
 import cors from 'cors';
 
-import { indexProfileRouter } from './routes';
-import { updateProfileRouter } from './routes/update';
+import { indexProfileRouter } from './routes/get-profile';
+import { newProfileRouter } from './routes/create-profile';
+import { updateProfileRouter } from './routes/update-profile';
 
 const app = express();
 app.set('trust proxy', true);
@@ -18,6 +19,7 @@ app.use(json());
 app.use(cookieSession({ signed: false, secure: process.env.NODE_ENV !== 'test' }));
 
 app.use(indexProfileRouter);
+app.use(newProfileRouter);
 app.use(updateProfileRouter);
 
 app.all('*', () => {

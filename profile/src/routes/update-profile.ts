@@ -6,7 +6,7 @@ import { Profile } from '../models/profile';
 const router = express.Router();
 
 router.put(
-    '/api/profile/:id',
+    '/api/users/profile/:id',
     [currentUser],
     [requireAuth],
     [
@@ -22,7 +22,7 @@ router.put(
         const profile = await Profile.findById(req.params.id);
 
         if (!profile) throw new NotFoundError();
-        if (profile.userId !== req.currentUser?.id) throw new NotAuthorisedError();
+        if (profile.userId !== req.currentUser!.id) throw new NotAuthorisedError();
 
         profile.isServing = req.body.isServing;
         profile.branch = req.body.branch;

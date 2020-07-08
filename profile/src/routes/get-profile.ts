@@ -4,8 +4,8 @@ import { Profile } from '../models/profile';
 
 const router = express.Router();
 
-router.get('/api/profile', [currentUser], [requireAuth], async (req: Request, res: Response) => {
-    const userProfile = await Profile.find({ userId: req.currentUser?.id });
+router.get('/api/users/profile', [currentUser], [requireAuth], async (req: Request, res: Response) => {
+    const userProfile = await Profile.find({ userId: req.currentUser!.id });
     res.status(200).send({userprofile: userProfile || null});
 });
 
