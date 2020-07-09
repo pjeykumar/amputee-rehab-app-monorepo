@@ -6,3 +6,5 @@ export { default as TextInput } from './TextInput';
 export { default as Link } from './Link';
 export { default as Text } from './Text';
 export { default as SafeAreaView } from './SafeAreaView';
+export { default as Subtitle } from './Subtitle';
+export { default as Information } from './Information';

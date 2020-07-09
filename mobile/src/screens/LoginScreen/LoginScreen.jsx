@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Title, Button, Layout, Container, TextInput, Link, Text } from '../../styles/components';
+import { Title, Button, Layout, TextInput, Link, Text } from '../../styles/components';
 import { withAuthContext } from '../../contexts/AuthContext/AuthContext';
 import { font } from '../../styles/constants';
 

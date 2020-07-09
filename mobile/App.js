@@ -12,6 +12,7 @@ import { useFonts } from '@use-expo/font';
 export default function App() {
   const [isLoaded] = useFonts({
     Avenir: require('./assets/fonts/Avenir-Book.ttf'),
+    Montserrat: require('./assets/fonts/Montserrat-Bold.ttf'),
   });
 
   if (!isLoaded) {

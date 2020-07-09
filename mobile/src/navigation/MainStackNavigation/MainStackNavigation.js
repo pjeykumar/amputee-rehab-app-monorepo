@@ -37,7 +37,7 @@ const getScreenOptions = (route) => ({
     return (
       <Text
         fontSize={font.small}
-        color={focused ? colours.blue : colours.white}
+        colour={focused ? colours.blue : colours.white}
         fontWeight={focused ? font.bold : font.regular}
         margin="-6px 0 8px"
       >

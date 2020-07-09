@@ -1,6 +1,7 @@
 const font = {
   small: '14px',
   default: '16px',
+  medium: '18px',
   large: '24px',
 
   /* Weights */
@@ -10,6 +11,7 @@ const font = {
   bold: '800',
 
   family: 'Avenir',
+  titleFamily: 'Montserrat',
 };
 
 export default font;

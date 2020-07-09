@@ -2,9 +2,15 @@ import React from 'react';
 import { Text } from '../components';
 import { colours, font } from '../constants';
 
-const Title = ({ children }) => {
+const Title = ({ children, fontSize = font.large, margin }) => {
   return (
-    <Text color={colours.blueDarker} fontSize={font.large} fontWeight={font.bold}>
+    <Text
+      colour={colours.blueDarker}
+      fontSize={fontSize}
+      fontWeight={font.bold}
+      margin={margin}
+      fontFamily={font.titleFamily}
+    >
       {children}
     </Text>
   );
