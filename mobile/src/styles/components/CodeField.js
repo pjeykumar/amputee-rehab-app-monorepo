@@ -28,8 +28,8 @@ const styles = StyleSheet.create({
   },
 });
 
-const Codefield = ({ CELL_COUNT, setValue, value }) => {
-  const ref = useBlurOnFulfill({ value, cellCount: CELL_COUNT });
+const Codefield = ({ codeLength, setValue, value }) => {
+  const ref = useBlurOnFulfill({ value, cellCount: codeLength });
   const [props, getCellOnLayoutHandler] = useClearByFocusCell({
     value,
     setValue,
@@ -40,7 +40,7 @@ const Codefield = ({ CELL_COUNT, setValue, value }) => {
       {...props}
       value={value}
       onChangeText={setValue}
-      cellCount={CELL_COUNT}
+      cellCount={codeLength}
       rootStyle={styles.codeFieldRoot}
       textContentType="oneTimeCode"
       renderCell={({ index, symbol, isFocused }) => (

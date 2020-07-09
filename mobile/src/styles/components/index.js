@@ -7,3 +7,4 @@ export { default as Link } from './Link';
 export { default as Text } from './Text';
 export { default as SafeAreaView } from './SafeAreaView';
 export { default as Codefield } from './CodeField';
+export { default as ButtonContainer } from './ButtonContainer';
