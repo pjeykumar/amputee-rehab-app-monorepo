@@ -3,37 +3,14 @@ import { Button as PaperButton } from 'react-native-paper';
 import styled from '@emotion/native';
 import { colours, font } from '../constants';
 import { Text } from './index';
+import getTypeStyle from '../../utils/typeStyles';
 
 const StyledButton = styled(PaperButton)`
   margin: 8px 0;
   justify-content: center;
-  box-sizing: border-box;
   border-width: 2px;
 
   align-self: ${(props) => (props.alignSelf !== undefined ? props.alignSelf : 'auto')};
-
-  background-color: ${(props) => {
-    if (props.inverted) {
-      return colours.yellowLighter;
-    }
-    if (props.primary) {
-      return colours.blueDarker;
-    } else if (props.secondary) {
-      return colours.yellowDark;
-    } else if (props.tertiary) {
-      return colours.red;
-    }
-  }};
-
-  border-color: ${(props) => {
-    if (props.primary) {
-      return colours.blueDarker;
-    } else if (props.secondary) {
-      return colours.greyLighter;
-    } else if (props.tertiary) {
-      return colours.redDark;
-    }
-  }};
 
   width: ${(props) => {
     if (props.small) {
@@ -44,32 +21,49 @@ const StyledButton = styled(PaperButton)`
       return '200px';
     }
   }};
+
+  background-color: ${(props) => {
+    const backgroundColourConstants = {
+      primary: colours.blueDarker,
+      secondary: colours.yellow,
+      tertiary: colours.red,
+      inverted: {
+        primary: colours.yellowLighter,
+        secondary: colours.white,
+        tertiary: colours.yellowLighter,
+      },
+    };
+    return getTypeStyle(props, backgroundColourConstants);
+  }};
+
+  border-color: ${(props) => {
+    const borderColourConstants = {
+      primary: colours.blueDarker,
+      secondary: colours.yellow,
+      tertiary: colours.red,
+      inverted: {
+        primary: colours.blueDarker,
+        secondary: colours.greyLighter,
+        tertiary: colours.redDark,
+      },
+    };
+    return getTypeStyle(props, borderColourConstants);
+  }};
 `;
 
-const buttonTextColour = (props) => {
-  if (props.inverted) {
-    if (props.primary) {
-      return colours.blueDarker;
-    }
-    if (props.secondary) {
-      return colours.greyDark;
-    }
-    if (props.tertiary) {
-      return colours.redDark;
-    }
-  }
-  if (props.primary || props.tertiary) {
-    return colours.yellowLighter;
-  }
-  if (props.secondary) {
-    return colours.greyDarker;
-  }
-
-  return colours.yellowLighter;
+const textColoursConstant = {
+  primary: colours.yellowLighter,
+  secondary: colours.greyDarker,
+  tertiary: colours.yellowLighter,
+  inverted: {
+    primary: colours.blueDarker,
+    secondary: colours.greyDark,
+    tertiary: colours.redDark,
+  },
 };
 
 const Button = ({ children, mode = 'contained', ...props }) => {
-  const textColour = buttonTextColour(props);
+  const textColour = getTypeStyle(props, textColoursConstant) || colours.yellowLighter;
   return (
     <StyledButton uppercase={false} mode={mode} {...props}>
       <Text colour={textColour} fontWeight={font.bold} fontSize={font.small}>

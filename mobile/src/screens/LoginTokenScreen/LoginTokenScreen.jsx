@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Layout, Title, Button, Codefield, Text, ButtonContainer } from '../../styles/components';
+import { Layout, Title, Button, Codefield, Text, Row } from '../../styles/components';
 import { ActivityIndicator } from 'react-native-paper';
 import { withAuthContext } from '../../contexts/AuthContext/AuthContext';
 
@@ -12,7 +12,7 @@ const LoginTokenScreen = ({ submitUserDetails }) => {
   const onReSendEmail = () => {
     console.log('resend email clicked');
   };
-  
+
   const onSubmit = async () => {
     setError(null);
     setLoading(true);
@@ -30,14 +30,14 @@ const LoginTokenScreen = ({ submitUserDetails }) => {
           <Title large>Enter your login code</Title>
           <Text margin="10px 0 0 0">To complete your login or registration, enter the code we sent to your email</Text>
           <Codefield codeLength={codeLength} setValue={setValue} value={value} />
-          <ButtonContainer>
-            <Button primary inverted medium onPress={onReSendEmail}>
+          <Row>
+            <Button inverted primary medium onPress={onReSendEmail}>
               Resend email {'»'}
             </Button>
             <Button primary medium onPress={onSubmit} alignSelf="flex-end">
               Submit {'»'}
             </Button>
-          </ButtonContainer>
+          </Row>
         </>
       )}
     </Layout>
