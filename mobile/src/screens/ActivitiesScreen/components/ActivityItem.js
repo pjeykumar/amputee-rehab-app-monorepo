@@ -1,9 +1,9 @@
 import React from 'react';
-import { Container, Title, Text, Information } from '../../../styles/components';
+import { Container, Title, Text, Information, Subtitle } from '../../../styles/components';
 import { Image, View } from 'react-native';
 import icon from '../../../../assets/icon.png';
 import styled from '@emotion/native';
-import { font } from '../../../styles/constants';
+import { font, spacing } from '../../../styles/constants';
 
 const StyledImage = styled(Image)`
   width: 75;
@@ -14,7 +14,8 @@ const StyledImage = styled(Image)`
 
 const StyledView = styled.View`
   flex-direction: row;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: ${spacing.medium};
 `;
 
 const ActivityItem = () => {
@@ -27,11 +28,10 @@ const ActivityItem = () => {
           <Text fontSize={font.small}>10:11am, 25th May 2020, Marlow, UK</Text>
         </View>
       </StyledView>
+      <Subtitle fontSize={font.default}>1.5km Ergo Sprint</Subtitle>
       <StyledView>
         <Information type="Activity" value="Ergo" />
         <Information type="Activity" value="Ergo" />
-      </StyledView>
-      <StyledView>
         <Information type="Activity" value="Ergo" />
         <Information type="Activity" value="Ergo" />
       </StyledView>

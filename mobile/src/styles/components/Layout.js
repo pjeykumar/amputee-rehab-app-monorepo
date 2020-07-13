@@ -4,7 +4,7 @@ import { colours } from '../constants';
 
 const StyledLayout = styled.View`
   flex: 1;
-  padding: 70px 30px;
+  padding: 40px 30px;
   background-color: ${colours.yellowLighter};
   justify-content: ${(props) => (props.justifyContent !== undefined ? props.justifyContent : 'flex-start')};
 `;

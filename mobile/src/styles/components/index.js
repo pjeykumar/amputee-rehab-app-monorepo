@@ -8,3 +8,4 @@ export { default as Text } from './Text';
 export { default as SafeAreaView } from './SafeAreaView';
 export { default as Subtitle } from './Subtitle';
 export { default as Information } from './Information';
+export { default as Row } from './Row';

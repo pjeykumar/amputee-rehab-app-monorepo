@@ -9,6 +9,9 @@ import { SafeAreaView } from './src/styles/components';
 import { AppLoading } from 'expo';
 import { useFonts } from '@use-expo/font';
 
+//Removes yellow warning box for devs, remove later
+console.disableYellowBox = true;
+
 export default function App() {
   const [isLoaded] = useFonts({
     Avenir: require('./assets/fonts/Avenir-Book.ttf'),
