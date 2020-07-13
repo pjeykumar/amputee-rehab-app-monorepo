@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express';
-import { currentUser, requireAuth, validateRequest, NotFoundError, NotAuthorisedError } from '@amp-rehab-app/common';
+import { currentUser, requireAuth, validateRequest, NotFoundError, NotAuthorisedError, BadRequestError} from '@amp-rehab-app/common';
 import { body } from 'express-validator';
 import { Profile } from '../models/profile';
 import multer from 'multer';
@@ -30,11 +30,11 @@ router.put(
 
         if(req.body.isMilitary){
             if(!req.body.branch && !req.body.serviceId){
-                res.status(400);
+                throw new BadRequestError('Branch and service Id is required!');
             }
 
             if(!req.body.branch || !req.body.serviceId){
-                res.status(400);
+                throw new BadRequestError('Branch and service Id is required!');
             }
         }
 

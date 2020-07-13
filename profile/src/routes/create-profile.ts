@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express';
-import { currentUser, validateRequest } from '@amp-rehab-app/common';
+import { currentUser, validateRequest, BadRequestError } from '@amp-rehab-app/common';
 import { body } from 'express-validator';
 import { Profile } from '../models/profile';
 import multer from 'multer';
@@ -18,9 +18,7 @@ router.post(
         body('fullName').not().isEmpty().withMessage('You need to provide your full name'),
         body('displayName').not().isEmpty().withMessage('You need to provide your display name'),
     ],
-        // Finds the validation errors in this request and wraps them in an object with handy functions
-        
-    upload.any(),
+    upload.single('profilePic'),
     currentUser,
     validateRequest,
     async (req: Request, res: Response) => {
@@ -35,11 +33,11 @@ router.post(
 
         if(req.body.isMilitary){
             if(!req.body.branch && !req.body.serviceId){
-                res.status(400);
+                throw new BadRequestError('Branch and service Id is required!');
             }
 
             if(!req.body.branch || !req.body.serviceId){
-                res.status(400);
+                throw new BadRequestError('Branch or service Id has not been inputted.');
             }
         }
 

@@ -81,14 +81,17 @@ describe('New profile route handler', () => {
     /*it('returns 201 with file upload', async () => {
         const res = await request(app)
             .post('/api/users/profile')
-            .set('Cookie', global.signin())
-            .field('isMilitary', JSON.stringify(false))
-            .field('email', 'test@test.com')
-            .field('fullName', 'Amputee Test')
-            .field('displayName','ampTest123')
-            //.attach('test', path.resolve(__dirname+"/assets/test.png"))
-            .expect(201);
-        console.log(res);
+            .set("Cookie", global.signin())
+            .set("Connection", "Keep-Alive")
+            .field("isMilitary", false)
+            .field("email", "test@test.com")
+            .field("fullName", "Amputee Test")
+            .field("displayName","ampTest123")
+            .attach('profilePic', path.resolve(__dirname+"/assets/test.png"))
+        console.log(res.error);
+        console.log(res.status);
+        console.log(res.files);
+        console.log(res.header);
     });*/
 
     it('returns 409 with attempt to create multiple profiles', async () => {
