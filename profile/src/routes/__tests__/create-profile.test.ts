@@ -19,6 +19,26 @@ describe('New profile route handler', () => {
             .expect(400);
     });
 
+    it('returns 400 when military is true and serviceId not specified', async () => {
+        await request(app)
+            .post('/api/users/profile')
+            .set('Cookie', global.signin())
+            .send({
+                isMilitary: true, branch:'test branch', email: 'test@test.com', fullName:'Amputee Test', displayName: 'ampTest123'
+            })
+            .expect(400);
+    });
+
+    it('returns 400 when military is true and branch is not specified', async () => {
+        await request(app)
+            .post('/api/users/profile')
+            .set('Cookie', global.signin())
+            .send({
+                isMilitary: true, serviceId:'028292', email: 'test@test.com', fullName:'Amputee Test', displayName: 'ampTest123'
+            })
+            .expect(400);
+    });
+
     it('returns 201 when is military true', async () => {
         await request(app)
             .post('/api/users/profile')

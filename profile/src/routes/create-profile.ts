@@ -2,24 +2,9 @@ import express, { Request, Response } from 'express';
 import { currentUser, validateRequest } from '@amp-rehab-app/common';
 import { body } from 'express-validator';
 import { Profile } from '../models/profile';
-import path from "path";
 import multer from 'multer';
-import crypto from "crypto";
 
-const storage = multer.diskStorage({
-  destination: function(req, file, cb) {
-    cb(null, path.resolve(__dirname, "profile-images/"));
-  },
-  filename: function(req, file, cb) {
-    crypto.pseudoRandomBytes(16, function(err, raw) {
-      if (err) return cb(err, '');
-
-      cb(null, raw.toString("hex") + path.extname(file.originalname));
-    });
-  },
-});
-
-const upload = multer({ storage });
+const upload = multer({ });
 const router = express.Router();
 
 

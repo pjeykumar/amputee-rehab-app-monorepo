@@ -3,24 +3,9 @@ import { currentUser, requireAuth, validateRequest, NotFoundError, NotAuthorised
 import { body } from 'express-validator';
 import { Profile } from '../models/profile';
 import multer from 'multer';
-import path from "path";
-import crypto from "crypto";
-
-const storage = multer.diskStorage({
-    destination: function(req, file, cb) {
-      cb(null, path.resolve(__dirname, "profile-images/"));
-    },
-    filename: function(req, file, cb) {
-      crypto.pseudoRandomBytes(16, function(err, raw) {
-        if (err) return cb(err, '');
-  
-        cb(null, raw.toString("hex") + path.extname(file.originalname));
-      });
-    },
-  });
 
 const router = express.Router();
-const upload = multer({ storage });
+const upload = multer({ });
 
 router.put(
     '/api/users/profile/:id',
