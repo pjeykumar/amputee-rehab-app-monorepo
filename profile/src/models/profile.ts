@@ -32,12 +32,8 @@ const profileSchema = new mongoose.Schema(
     {
         userId: { type: String, required: true },
         isMilitary: { type: Boolean, required: true },
-        branch: { type: String, required: function(this: ProfileAttrs){
-            return this.isMilitary;
-        }},
-        serviceId: { type: String, required: function(this: ProfileAttrs){
-            return this.isMilitary;
-        }},
+        branch: { type: String, required: (isMilitary) => {return isMilitary;}},
+        serviceId: { type: String, required: (isMilitary) => {return isMilitary;}},
         email: { type: String, required: true },
         fullName: { type: String, required: true },
         displayName: { type: String, required: true },

@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 import { Profile } from '../../models/profile';
 
 const createProfile = async (cookie: string[]) => {
-    return request(app).post('/api/users/profile').set('Cookie', cookie).send({ isMilitary: true, branch: 'testBranch', serviceId:'028292', email: 'test@test.com', fullName:'Amputee Test', displayName: 'ampTest123', profilePic: 'test.png', bio:'Test bio'});
+    return request(app).post('/api/users/profile').set('Cookie', cookie).send({ isMilitary: true, branch: 'testBranch', serviceId:'028292', email: 'test@test.com', fullName:'Amputee Test', displayName: 'ampTest123', bio:'Test bio'});
 }
 
 describe('Update profile route handler', () => {
@@ -72,6 +72,22 @@ describe('Update profile route handler', () => {
         expect(await Profile.find({}));
 
         await request(app).put(`/api/users/profile/${id}`).set('Cookie', cookie).send(body).expect(404);
+    });
+
+    it('returns 202 with updated profile picture', async () => {
+        const cookie = await global.signin();
+        const res = await createProfile(cookie);
+        expect(await Profile.find({}));
+        expect(res.body.profilePic).toBeUndefined();
+
+        let img_data = 'thisisatestimageUrl';
+        let buff = Buffer.from(img_data);
+        let base64profilePic = buff.toString('base64');
+        await request(app)
+            .put(`/api/users/profile/${res.body.id}`)
+            .set("Cookie", cookie)
+            .send({isMilitary: true, branch: 'testBranch', serviceId:'028292', email: 'test@test.com', fullName:'Amputee Test', displayName: 'ampTest123', profilePic:base64profilePic,bio:'Test bio'})
+            .expect(202)
     });
 
     it('should return 202 when user profile successfully updated', async() => {

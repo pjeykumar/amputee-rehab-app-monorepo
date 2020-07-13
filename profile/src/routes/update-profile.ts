@@ -2,14 +2,11 @@ import express, { Request, Response } from 'express';
 import { currentUser, requireAuth, validateRequest, NotFoundError, NotAuthorisedError, BadRequestError} from '@amp-rehab-app/common';
 import { body } from 'express-validator';
 import { Profile } from '../models/profile';
-import multer from 'multer';
 
 const router = express.Router();
-const upload = multer({ });
 
 router.put(
     '/api/users/profile/:id',
-    upload.any(),
     currentUser,
     requireAuth,
     [
@@ -20,7 +17,6 @@ router.put(
         body('fullName').not().isEmpty().withMessage('You need to provide your full name'),
         body('displayName').not().isEmpty().withMessage('You need to provide your display name'),
     ],
-    upload.single('profilePic'),
     validateRequest,
     async (req: Request, res: Response) => {
         const profile = await Profile.findById(req.params.id);
@@ -44,7 +40,7 @@ router.put(
         profile.email = req.body.email;
         profile.fullName = req.body.fullName;
         profile.displayName = req.body.displayName;
-        profile.profilePic = req.file ? req.file.buffer.toString('base64') : '';
+        profile.profilePic = req.body.profilePic;
         profile.bio = req.body.bio;
 
         await profile.save();

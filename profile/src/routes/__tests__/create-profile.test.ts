@@ -1,6 +1,5 @@
 import request from 'supertest';
 import { app } from '../../app';
-//import path from "path";
 import { Profile } from '../../models/profile';
 
 describe('New profile route handler', () => {
@@ -77,22 +76,16 @@ describe('New profile route handler', () => {
             .expect(400);
     });
 
-    //commenting this out as it is failing test.
-    /*it('returns 201 with file upload', async () => {
-        const res = await request(app)
+    it('returns 201 with base64 profile pic string', async () => {
+        let img_data = 'thisisatestimageUrl';
+        let buff = Buffer.from(img_data);
+        let base64profilePic = buff.toString('base64');
+        await request(app)
             .post('/api/users/profile')
             .set("Cookie", global.signin())
-            .set("Connection", "Keep-Alive")
-            .field("isMilitary", false)
-            .field("email", "test@test.com")
-            .field("fullName", "Amputee Test")
-            .field("displayName","ampTest123")
-            .attach('profilePic', path.resolve(__dirname+"/assets/test.png"))
-        console.log(res.error);
-        console.log(res.status);
-        console.log(res.files);
-        console.log(res.header);
-    });*/
+            .send({isMilitary: true, branch: 'testBranch', serviceId:'028292', email: 'test@test.com', fullName:'Amputee Test', displayName: 'ampTest123', profilePic:base64profilePic})
+            .expect(201)
+    });
 
     it('returns 409 with attempt to create multiple profiles', async () => {
         await request(app)

@@ -2,9 +2,6 @@ import express, { Request, Response } from 'express';
 import { currentUser, validateRequest, BadRequestError } from '@amp-rehab-app/common';
 import { body } from 'express-validator';
 import { Profile } from '../models/profile';
-import multer from 'multer';
-
-const upload = multer({ });
 const router = express.Router();
 
 
@@ -18,12 +15,10 @@ router.post(
         body('fullName').not().isEmpty().withMessage('You need to provide your full name'),
         body('displayName').not().isEmpty().withMessage('You need to provide your display name'),
     ],
-    upload.single('profilePic'),
     currentUser,
     validateRequest,
     async (req: Request, res: Response) => {
-        const { isMilitary, branch, serviceId, email, fullName, displayName, bio } = req.body;
-        const profilePic = req.file ? req.file.buffer.toString('base64') : '';
+        const { isMilitary, branch, serviceId, email, fullName, displayName, profilePic, bio } = req.body;
 
         const existingProfile = await Profile.find({ email: email})
 
