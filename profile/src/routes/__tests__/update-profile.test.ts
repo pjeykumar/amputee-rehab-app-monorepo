@@ -1,15 +1,16 @@
 import request from 'supertest';
 import { app } from '../../app';
 import mongoose from 'mongoose';
+import { Profile } from '../../models/profile';
 
 const createProfile = async (cookie: string[]) => {
-    return request(app).post('/api/users/profile').set('Cookie', cookie).send({ isServing: true, branch: 'testBranch', serviceId:'028292', email: 'test@gmail.com', fullName:'Amputee Test', displayName: 'ampTest123', profilePic: 'test.png', bio:'Test bio'});
+    return request(app).post('/api/users/profile').set('Cookie', cookie).send({ isMilitary: true, branch: 'testBranch', serviceId:'028292', email: 'test@test.com', fullName:'Amputee Test', displayName: 'ampTest123', profilePic: 'test.png', bio:'Test bio'});
 }
 
 describe('Update profile route handler', () => {
     let id: string;
     let cookie: string[];
-    let body = { isServing: true, branch: 'testBranch', serviceId:'028292', email: 'test@gmail.com', fullName:'Amputee Test', displayName: 'ampTest123', profilePic: 'test.png', bio:'Test bio'};
+    let body = { isMilitary: true, branch: 'testBranch', serviceId:'028292', email: 'test@test.com', fullName:'Updated name', displayName: 'ampTest123', profilePic: 'test.png', bio:'Test bio'};
 
     beforeEach(async () => { 
         id = mongoose.Types.ObjectId().toHexString();
@@ -31,16 +32,38 @@ describe('Update profile route handler', () => {
         expect(response.status).not.toBe(401);
     });
 
-    it('responds with empty user profile if none exists', async () => {
-        const response = await request(app).get(`/api/users/profile`).set('Cookie', global.signin()).send().expect(200);
-        expect(response.body.userprofile).toEqual([]);
-    });
-
-    it('should return 404 if profile does not exist', async () => {
-        await request(app).put(`/api/users/profile/${id}`).set('Cookie', global.signin()).send(body).expect(404);
-    });
-
     it('should return 400 if incorrect payload', async () => {
         await request(app).put(`/api/users/profile/${id}`).set('Cookie', global.signin()).send({}).expect(400);
+    });
+
+    it('should return 400 if isMilitary true and missing inputs', async () => {
+        const cookie = await global.signin();
+        const res = await createProfile(cookie);
+        expect(await Profile.find({}));
+        await request(app).put(`/api/users/profile/${res.body.id}`)
+        .set('Cookie', cookie)
+        .send({isMilitary: true, email: 'test@test.com', fullName:'Updated name', displayName: 'ampTest123', profilePic: 'test.png', bio:'Test bio'})
+        .expect(400);
+    });
+
+    it('should return 404 when profile not found', async() => {
+        const cookie = await global.signin();
+        await createProfile(cookie);
+        expect(await Profile.find({}));
+
+        await request(app).put(`/api/users/profile/${id}`).set('Cookie', cookie).send(body).expect(404);
+    });
+
+    it('should return 202 when user profile successfully updated', async() => {
+        const cookie = await global.signin();
+        const res = await createProfile(cookie);
+        expect(await Profile.find({}));
+
+        const response = await request(app).put(`/api/users/profile/${res.body.id}`)
+        .set('Cookie', cookie)
+        .send(body)
+        .expect(202);
+
+        expect(response.body.fullName).toBe('Updated name')
     });
 });

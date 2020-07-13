@@ -3,7 +3,7 @@ import { app } from '../../app';
 import { Profile } from '../../models/profile';
 
 const createProfile = async (cookie: string[]) => {
-    return request(app).post('/api/users/profile').set('Cookie', cookie).send({ isServing: true, branch: 'testBranch', serviceId:'028292', email: 'test@gmail.com', fullName:'Amputee Test', displayName: 'ampTest123', profilePic: 'test.png', bio:'Test bio'});
+    return request(app).post('/api/users/profile').set('Cookie', cookie).send({ isMilitary: true, branch: 'testBranch', serviceId:'028292', email: 'test@test.com', fullName:'Amputee Test', displayName: 'ampTest123', profilePic: 'test.png', bio:'Test bio'});
 }
 
 describe('index route handler', () => {
@@ -16,12 +16,21 @@ describe('index route handler', () => {
         await request(app).get('/api/users/profile').send().expect(401);
     });
 
+    it('responds with empty user profile if none exists', async () => {
+        const response = await request(app).get(`/api/users/profile`).set('Cookie', global.signin()).send();
+        expect(response.body.userprofile).toEqual(undefined);
+    });
+
+    it('responds 404 if profile does not exist', async () => {
+        await request(app).get(`/api/users/profile`).set('Cookie', global.signin()).send().expect(404);
+    });
+
     it("should only return logged in user's profile", async () => {
         const cookie = await global.signin();
         await createProfile(cookie);
         expect(await Profile.find({}));
 
         const response = await request(app).get('/api/users/profile').set('Cookie', cookie).send().expect(200);
-        expect(response.body.userprofile[0].email).toEqual('test@gmail.com');
+        expect(response.body.email).toBe('test@test.com')
     });
 });

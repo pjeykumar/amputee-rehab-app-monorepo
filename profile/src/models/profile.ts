@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 interface ProfileAttrs {
     userId: string;
-    isServing: boolean;
+    isMilitary: boolean;
     branch: string;
     serviceId: string;
     email: string;
@@ -14,7 +14,7 @@ interface ProfileAttrs {
 
 interface ProfileDoc extends mongoose.Document {
     userId: string;
-    isServing: boolean;
+    isMilitary: boolean;
     branch: string;
     serviceId: string;
     email: string;
@@ -31,9 +31,13 @@ interface ProfileModel extends mongoose.Model<ProfileDoc> {
 const profileSchema = new mongoose.Schema(
     {
         userId: { type: String, required: true },
-        isServing: { type: Boolean, required: true },
-        branch: { type: String, required: true },
-        serviceId: { type: String, required: true },
+        isMilitary: { type: Boolean, required: true },
+        branch: { type: String, required: function(this: ProfileAttrs){
+            return this.isMilitary;
+        }},
+        serviceId: { type: String, required: function(this: ProfileAttrs){
+            return this.isMilitary;
+        }},
         email: { type: String, required: true },
         fullName: { type: String, required: true },
         displayName: { type: String, required: true },
