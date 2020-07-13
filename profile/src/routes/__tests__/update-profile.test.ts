@@ -46,6 +46,26 @@ describe('Update profile route handler', () => {
         .expect(400);
     });
 
+    it('should return 400 if isMilitary true and missing branch', async () => {
+        const cookie = await global.signin();
+        const res = await createProfile(cookie);
+        expect(await Profile.find({}));
+        await request(app).put(`/api/users/profile/${res.body.id}`)
+        .set('Cookie', cookie)
+        .send({isMilitary: true, serviceId:'028292', email: 'test@test.com', fullName:'Updated name', displayName: 'ampTest123', profilePic: 'test.png', bio:'Test bio'})
+        .expect(400);
+    });
+
+    it('should return 400 if isMilitary true and missing serviceId', async () => {
+        const cookie = await global.signin();
+        const res = await createProfile(cookie);
+        expect(await Profile.find({}));
+        await request(app).put(`/api/users/profile/${res.body.id}`)
+        .set('Cookie', cookie)
+        .send({isMilitary: true, branch: 'testBranch', email: 'test@test.com', fullName:'Updated name', displayName: 'ampTest123', profilePic: 'test.png', bio:'Test bio'})
+        .expect(400);
+    });
+
     it('should return 404 when profile not found', async() => {
         const cookie = await global.signin();
         await createProfile(cookie);
