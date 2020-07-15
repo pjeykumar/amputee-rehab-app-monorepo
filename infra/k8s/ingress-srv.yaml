@@ -17,6 +17,10 @@ spec:
                   backend:
                       serviceName: activity-recorder-srv
                       servicePort: 3000
+                - path: /api/users/profile/?(.*)
+                  backend:
+                      serviceName: profile-srv
+                      servicePort: 3000
                 - path: /?(.*)
                   backend:
                       serviceName: client-srv
