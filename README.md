@@ -31,6 +31,7 @@ Before you begin, ensure you have met the following requirements:
   - [Node v12.17.0](https://nodejs.org/en/)
   - [Docker](https://www.docker.com/) with [Kubernetes](https://kubernetes.io/) enabled
   - [Skaffold](https://skaffold.dev/)
+  - [Yarn] (https://classic.yarnpkg.com/en/docs/install)
 
 Enable Ingress-nginx on your Kubernetes instance
 
