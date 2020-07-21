@@ -21,7 +21,7 @@ spec:
                   backend:
                       serviceName: profile-srv
                       servicePort: 3000
-                - path: /api/swagger/docs
+                - path: /api/swagger/?(.*)
                   backend:
                       serviceName: swagger-srv
                       servicePort: 3000

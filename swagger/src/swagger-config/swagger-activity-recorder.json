@@ -1,0 +1,20 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Revenite Activity Recorder API",
+      "description": "defaultDescription",
+      "version": "0.1"
+    },
+    "servers": [
+      {
+        "url": "http://localhost/"
+      }
+    ],
+    "paths": {
+    },
+    "components": {
+      "schemas": {
+         
+      }
+    }
+  }

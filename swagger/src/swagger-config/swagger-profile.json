@@ -1,0 +1,199 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Revenite Profile API",
+      "description": "This swagger doc holds documentation required to fulfill requests as part of the profile api in the Revenite application.",
+      "version": "1.0"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    },
+    "servers": [
+      {
+        "url": "http://localhost"
+      }
+    ],
+    "tags": [
+      {
+          "name": "Profile",
+          "description": "API for the revenite profile system"
+      }
+    ],
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "paths": {
+      "/api/users/profile":{
+        "get":{
+          "tags": [
+            "Profile"
+          ],
+          "security": [
+            {
+              "JWT": []
+            }
+          ],
+          "summary": "Get the logged in users profile",
+          "responses": {
+            "200": {
+                "description": "Profile retrieved",
+                "schema": {
+                    "$ref": "#/components/schemas/Profile"
+                }
+            },
+            "404":{
+              "description": "Profile not found"
+            },
+            "401":{
+              "description": "Not authorized"
+            }
+          }
+        },
+        "post":{
+          "tags": [
+            "Profile"
+          ],
+          "summary": "Create a new user profile",
+          "requestBody": {
+            "$ref": "#/components/requestBodies/Profile"
+          },
+          "responses": {
+            "201": {
+                "description": "Profile created",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/Profile"
+                    }
+                  }
+                }
+            },
+            "400":{
+              "description": "Invalid request body"
+            },
+            "409":{
+              "description": "User profile already exists"
+            }
+          }
+        }
+      },
+      "/api/users/profile/{id}":{
+        "put": {
+          "tags": [
+            "Profile"
+          ],
+          "summary": "Update an existing user profile",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "ID of profile to update",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "202": {
+              "description": "Profile updated",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Profile"
+                  }
+                }
+              }
+            },
+            "400":{
+              "description": "Invalid request body"
+            },
+            "409":{
+              "description": "User profile already exists"
+            },
+            "404":{
+              "description": "Profile not found"
+            }
+          },
+          "security": [
+            {
+              "JWT": [
+              ]
+            }
+          ],
+          "requestBody": {
+            "$ref": "#/components/requestBodies/Profile"
+          }
+        }
+      }
+
+    },
+    "components": {
+      "securitySchemes": {
+        "JWT":{
+            "type": "http",
+            "scheme": "bearer",
+            "bearerFormat": "JWT"
+        }
+      },
+      "requestBodies": {
+        "Profile": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Profile"
+              }
+            }
+          },
+          "description": "Profile object that needs to be added or updated in database",
+          "required": true
+        }
+      },
+      "schemas": {
+         "Profile":{
+            "type": "object",
+            "properties": {
+              "userId": {
+                  "type": "string"
+              },
+              "isMilitary": {
+                  "type": "boolean",
+                  "example": true
+              },
+              "branch": {
+                  "type": "string",
+                  "example": "Army"
+              },
+              "serviceId": {
+                "type": "string",
+                "example": "ABCD1234"
+               },
+              "email": {
+                  "type": "string",
+                  "example": "test@test.com"
+              },
+              "fullName": {
+                "type": "string",
+                "example": "Revenite Developer"
+              },
+              "displayName": {
+                "type": "string",
+                "example": "rev_dev"
+              },
+              "profilePic": {
+                "type": "string",
+                "example": "c2Ruc2pkbnNqcy5wbmc=base64"
+              },
+              "bio": {
+                "type": "string",
+                "example": "Hey guys, I'm rev dev and this is my profile"
+              }
+            }
+         }
+      }
+    }
+  }
