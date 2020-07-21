@@ -1,11 +1,22 @@
 {
   "main": "index.js",
+  "name": "renovite",
+  "version": "1.0.0",
+  "author": "Adam Turner <adam.turner@and.digital>",
+  "license": "MIT",
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "web": "expo start --web",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "git": "git cz",
+    "dev": "skaffold dev",
+    "activity-recorder:coverage": "cd activity-recorder && yarn coverage",
+    "auth:coverage": "cd auth && yarn coverage",
+    "mobile:coverage": "cd mobile && yarn coverage",
+    "profile:coverage": "cd profile && yarn coverage",
+    "coverage": "yarn auth:coverage && yarn activity-recorder:coverage && yarn mobile:coverage && profile:coverage"
   },
   "dependencies": {
     "expo": "~38.0.1",
@@ -52,7 +63,17 @@
     "eslint-plugin-react": "^7.20.0",
     "jest": "~25.2.6",
     "react-native-testing-library": "^2.1.0",
-    "react-test-renderer": "~16.11.0"
+    "react-test-renderer": "~16.11.0",
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "commitizen": "^4.1.2",
+    "cz-conventional-changelog": "^3.2.0",
+    "husky": "^4.2.5"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   },
   "jest": {
     "preset": "react-native"
