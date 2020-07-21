@@ -40,6 +40,14 @@ build:
         manual:
           - src: "**/*.js"
             dest: .
+    - image: eu.gcr.io/dev-rehab-app/swagger
+      context: swagger
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "**/*.js"
+            dest: .
 profiles:
   - name: production
     build:

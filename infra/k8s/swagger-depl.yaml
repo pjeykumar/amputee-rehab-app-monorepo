@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: swagger-depl
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: swagger
+    template:
+        metadata:
+            labels:
+                app: swagger
+        spec:
+            containers:
+                - name: swagger
+                  image: eu.gcr.io/dev-rehab-app/swagger
+                  env:
+                      - name: JWT_KEY
+                        valueFrom:
+                            secretKeyRef:
+                                name: jwt-secret
+                                key: JWT_KEY
+---
+apiVersion: v1
+kind: Service
+metadata:
+    name: swagger-srv
+spec:
+    selector:
+        app: swagger
+    ports:
+        - name: swagger
+          protocol: TCP
+          port: 3000
+          targetPort: 3000

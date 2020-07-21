@@ -11,7 +11,8 @@
     "auth:coverage": "cd auth && yarn coverage",
     "mobile:coverage": "cd mobile && yarn coverage",
     "profile:coverage": "cd profile && yarn coverage",
-    "coverage": "yarn auth:coverage && yarn activity-recorder:coverage && yarn mobile:coverage && profile:coverage"
+    "swagger:coverage": "cd swagger && yarn coverage",
+    "coverage": "yarn auth:coverage && yarn activity-recorder:coverage && yarn mobile:coverage && profile:coverage && swagger:coverage"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
