@@ -1,0 +1,12 @@
+{
+  "name": "revenite",
+  "displayName": "revenite",
+  "expo": {
+    "name": "revenite",
+    "slug": "revenite",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}

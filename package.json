@@ -1,36 +1,61 @@
 {
-  "name": "rehab-monorepo",
-  "version": "1.0.0",
   "main": "index.js",
-  "author": "Adam Turner <adam.turner@and.digital>",
-  "license": "MIT",
   "scripts": {
-    "git": "git cz",
-    "dev": "skaffold dev",
-    "activity-recorder:coverage": "cd activity-recorder && yarn coverage",
-    "auth:coverage": "cd auth && yarn coverage",
-    "mobile:coverage": "cd mobile && yarn coverage",
-    "profile:coverage": "cd profile && yarn coverage",
-    "coverage": "yarn auth:coverage && yarn activity-recorder:coverage && yarn mobile:coverage && profile:coverage"
-  },
-  "devDependencies": {
-    "@commitlint/cli": "^8.3.5",
-    "@commitlint/config-conventional": "^8.3.4",
-    "commitizen": "^4.1.2",
-    "cz-conventional-changelog": "^3.2.0",
-    "husky": "^4.2.5"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "web": "expo start --web",
+    "start": "react-native start",
+    "test": "jest"
   },
   "dependencies": {
-    "expo": "^37.0.12"
-  }
+    "expo": "~38.0.1",
+    "expo-splash-screen": "~0.4.0",
+    "expo-status-bar": "^1.0.0",
+    "expo-updates": "~0.2.10",
+    "react": "~16.11.0",
+    "react-dom": "~16.11.0",
+    "react-native": "~0.62.2",
+    "react-native-gesture-handler": "~1.6.1",
+    "react-native-reanimated": "~1.9.0",
+    "react-native-screens": "~2.9.0",
+    "react-native-unimodules": "~0.10.1",
+    "react-native-web": "~0.11.7",
+    "@emotion/core": "^10.0.28",
+    "@emotion/native": "^10.0.27",
+    "@invertase/react-native-apple-authentication": "^1.1.2",
+    "@react-native-community/masked-view": "0.1.6",
+    "@react-navigation/bottom-tabs": "^5.6.1",
+    "@react-navigation/material-bottom-tabs": "^5.2.12",
+    "@react-navigation/native": "^5.5.1",
+    "@react-navigation/stack": "^5.5.1",
+    "@use-expo/font": "^2.0.0",
+    "axios": "^0.19.2",
+    "expo-apple-authentication": "~2.1.0",
+    "prettier": "^2.0.5",
+    "prop-types": "^15.7.2",
+    "react-native-paper": "^3.10.1",
+    "react-native-safe-area-context": "0.7.3",
+    "react-test-renderer": "^16.13.1"
+  },
+  "devDependencies": {
+    "@babel/core": "~7.9.0",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "~25.2.6",
+    "babel-plugin-root-import": "^6.5.0",
+    "babel-preset-expo": "~8.1.0",
+    "eslint": "^7.3.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.0",
+    "jest": "~25.2.6",
+    "react-native-testing-library": "^2.1.0",
+    "react-test-renderer": "~16.11.0"
+  },
+  "jest": {
+    "preset": "react-native"
+  },
+  "private": true
 }
