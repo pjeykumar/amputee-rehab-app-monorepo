@@ -13,7 +13,7 @@ spec:
                   backend:
                     serviceName: auth-srv
                     servicePort: 3000
-                - path: /api/activity/?(.*)
+                - path: /api/activity-recorder/?(.*)
                   backend:
                       serviceName: activity-recorder-srv
                       servicePort: 3000

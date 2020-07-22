@@ -7,7 +7,7 @@ const start = async () => {
     }
 
     try {
-        await mongoose.connect('mongodb://activity-recorder-mongo-srv:27017/activity', {
+        await mongoose.connect('mongodb://activity-tracking-srv:27017/activity', {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             useCreateIndex: true,

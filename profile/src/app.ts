@@ -1,4 +1,4 @@
-import { NotFoundError, errorHandler } from '@amp-rehab-app/common';
+import { NotFoundError } from '@amp-rehab-app/common';
 
 import express from 'express';
 import 'express-async-errors';
@@ -28,7 +28,5 @@ app.use(updateProfileRouter);
 app.all('*', () => {
   throw new NotFoundError();
 });
-
-app.use(errorHandler);
 
 export { app };
