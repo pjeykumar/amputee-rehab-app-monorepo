@@ -22,7 +22,7 @@ router.put(
         const profile = await Profile.findById(req.params.id);
 
         if (!profile) throw new NotFoundError();
-        if (profile.userId !== req.currentUser!.id) throw new NotAuthorisedError();
+        if (profile.userId !== req.currentUser?.id) throw new NotAuthorisedError();
 
         if(req.body.isMilitary){
             if(!req.body.branch && !req.body.serviceId){

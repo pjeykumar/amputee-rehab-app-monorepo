@@ -5,7 +5,7 @@ import { Profile } from '../models/profile';
 const router = express.Router();
 
 router.get('/api/users/profile', currentUser, requireAuth, async (req: Request, res: Response) => {
-    const profile = await Profile.findOne({ email: req.currentUser!.email});
+    const profile = await Profile.findOne({ email: req.currentUser?.email});
 
     if(!profile){
         throw new NotFoundError();

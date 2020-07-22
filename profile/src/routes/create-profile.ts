@@ -21,7 +21,7 @@ router.post(
     async (req: Request, res: Response) => {
         const { isMilitary, branch, serviceId, email, fullName, displayName, profilePic, bio } = req.body;
 
-        const existingProfile = await Profile.findOne({ email: req.currentUser!.email })
+        const existingProfile = await Profile.findOne({ email: req.currentUser?.email })
 
         if(existingProfile){
             res.status(409).send("Profile with this email already exists.")
