@@ -8,6 +8,10 @@ describe('New profile route handler', () => {
         expect(resp.status).not.toEqual(404);
     })
 
+    it('returns 401 if unauthorized', async () => {
+        await request(app).post('/api/users/profile').send({isMilitary: true, email: 'test@test.com', fullName:'Amputee Test', displayName: 'ampTest123'}).expect(401);
+    });
+
     it('returns 400 when inputs are missing', async () => {
         await request(app)
             .post('/api/users/profile')
@@ -98,6 +102,7 @@ describe('New profile route handler', () => {
 
         return request(app)
             .post('/api/users/profile')
+            .set('Cookie', global.signin())
             .send({isMilitary: false, email: 'test@test.com', fullName:'Amputee Test', displayName: 'ampTest123'})
             .expect(409);
     });

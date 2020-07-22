@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express';
-import { currentUser, validateRequest, BadRequestError } from '@amp-rehab-app/common';
+import { currentUser, validateRequest, BadRequestError, requireAuth } from '@amp-rehab-app/common';
 import { body } from 'express-validator';
 import { Profile } from '../models/profile';
 const router = express.Router();
@@ -16,14 +16,15 @@ router.post(
         body('displayName').not().isEmpty().withMessage('You need to provide your display name'),
     ],
     currentUser,
+    requireAuth,
     validateRequest,
     async (req: Request, res: Response) => {
         const { isMilitary, branch, serviceId, email, fullName, displayName, profilePic, bio } = req.body;
 
-        const existingProfile = await Profile.find({ email: email})
+        const existingProfile = await Profile.findOne({ email: req.currentUser!.email })
 
         if(existingProfile){
-            res.status(409);
+            res.status(409).send("Profile with this email already exists.")
         }
 
         if(req.body.isMilitary){

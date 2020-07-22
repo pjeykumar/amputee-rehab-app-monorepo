@@ -21,7 +21,7 @@ router.put(
         const activity = await Activity.findById(req.params.id);
 
         if (!activity) throw new NotFoundError();
-        if (activity.userId !== req.currentUser?.id) throw new NotAuthorisedError();
+        if (activity.userId !== req.currentUser!.id) throw new NotAuthorisedError();
 
         activity.exercise = req.body.exercise;
         activity.distance = req.body.distance;
