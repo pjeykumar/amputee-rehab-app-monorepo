@@ -20,6 +20,12 @@
           "description": "API for the revenite profile system"
       }
     ],
+    "security": [
+      {
+        "JWT": [
+        ]
+      }
+    ],
     "consumes": [
       "application/json"
     ],
@@ -31,11 +37,6 @@
         "get":{
           "tags": [
             "Profile"
-          ],
-          "security": [
-            {
-              "JWT": []
-            }
           ],
           "summary": "Get the logged in users profile",
           "responses": {
@@ -119,12 +120,6 @@
               "description": "Profile not found"
             }
           },
-          "security": [
-            {
-              "JWT": [
-              ]
-            }
-          ],
           "requestBody": {
             "$ref": "#/components/requestBodies/Profile"
           }

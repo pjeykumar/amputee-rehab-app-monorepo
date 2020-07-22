@@ -7,7 +7,7 @@ import cookieSession from 'cookie-session';
 import cors from 'cors';
 
 import { newActivityRouter } from './routes/new';
-import { indexActivityRouter } from './routes';
+import { indexActivityRouter } from './routes/index';
 import { updateActivityRouter } from './routes/update';
 
 const app = express();

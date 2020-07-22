@@ -1,20 +1,184 @@
 {
-    "openapi": "3.0.0",
-    "info": {
-      "title": "Revenite Activity Recorder API",
-      "description": "defaultDescription",
-      "version": "0.1"
-    },
-    "servers": [
-      {
-        "url": "http://localhost/"
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Revenite Activity Recorder API",
+    "description": "This swagger doc holds documentation required to fulfill requests as part of the activity recorder api in the Revenite application.",
+    "version": "1.0"
+  },
+  "license": {
+    "name": "MIT",
+    "url": "https://opensource.org/licenses/MIT"
+  },
+  "servers": [
+    {
+      "url": "http://localhost"
+    }
+  ],
+  "tags": [
+    {
+        "name": "Activity",
+        "description": "API for the revenite activity recorder system"
+    }
+  ],
+  "security": [
+    {
+      "JWT": [
+      ]
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/activity":{
+      "get":{
+        "tags": [
+          "Activity"
+        ],
+        "summary": "Get the logged in users activities",
+        "responses": {
+          "200": {
+              "description": "Activities retrieved",
+              "schema": {
+                  "$ref": "#/components/schemas/Activity"
+              }
+          },
+          "401":{
+            "description": "Not authorized"
+          }
+        }
+      },
+      "post":{
+        "tags": [
+          "Activity"
+        ],
+        "summary": "Create a new activity",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/Activity"
+        },
+        "responses": {
+          "201": {
+              "description": "Activity created",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Activity"
+                  }
+                }
+              }
+          },
+          "400":{
+            "description": "Invalid request body"
+          },
+          "401":{
+            "description": "Not authorized"
+          }
+        }
       }
-    ],
-    "paths": {
     },
-    "components": {
-      "schemas": {
-         
+    "/api/activity/{id}":{
+      "put": {
+        "tags": [
+          "Activity"
+        ],
+        "summary": "Update an activity",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of activity to update",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Activity updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Activity"
+                }
+              }
+            }
+          },
+          "400":{
+            "description": "Invalid request body"
+          },
+          "401":{
+            "description": "Not authorized"
+          }
+        },
+        "requestBody": {
+          "$ref": "#/components/requestBodies/Activity"
+        }
       }
     }
+
+  },
+  "components": {
+    "securitySchemes": {
+      "JWT":{
+          "type": "http",
+          "scheme": "bearer",
+          "bearerFormat": "JWT"
+      }
+    },
+    "requestBodies": {
+      "Activity": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Activity"
+            }
+          }
+        },
+        "description": "Activity object that needs to be added or updated in database",
+        "required": true
+      }
+    },
+    "schemas": {
+       "Activity":{
+          "type": "object",
+          "properties": {
+            "userId": {
+                "type": "string"
+            },
+            "exercise": {
+                "type": "string",
+                "example": "Jogging"
+            },
+            "distance": {
+                "type": "integer",
+                "example": 10
+            },
+            "duration": {
+              "type": "integer",
+              "example": 30
+             },
+            "description": {
+                "type": "string",
+                "example": "Jog on monday morning"
+            },
+            "difficulty": {
+              "type": "integer",
+              "example": 6
+            },
+            "photos": {
+              "type": "array",
+              "example": ["base64string"]
+            },
+            "privacy": {
+              "type": "string",
+              "example": "Only show to followers"
+            }
+          }
+       }
+    }
   }
+}

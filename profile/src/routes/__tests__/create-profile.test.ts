@@ -98,6 +98,7 @@ describe('New profile route handler', () => {
 
         return request(app)
             .post('/api/users/profile')
+            .set('Cookie', global.signin())
             .send({isMilitary: false, email: 'test@test.com', fullName:'Amputee Test', displayName: 'ampTest123'})
             .expect(409);
     });
